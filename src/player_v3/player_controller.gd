@@ -4,15 +4,24 @@ extends KinematicBody2D
 signal direction_changed(new_direction)
 signal state_changed(current_state)
 
-export(float) var slope_force = 4.0
+export(float) var slope_force = 1
+export(Vector2) var snap_point
 
 var look_direction = Vector2(1, 0) setget set_look_direction
-var velocity = Vector2()
+var velocity = Vector2(0, 0)
+var is_jumping : bool = false
 
 
 func _physics_process(delta):
-	self.apply_gravity(delta)
-	velocity = self.move_and_slide(velocity, Globals.UP, true)
+	if !check_is_on_floor():
+		apply_gravity(delta)
+	
+	if !is_jumping:
+		velocity = move_and_slide_with_snap(velocity, snap_point, Globals.UP, true, slope_force, deg2rad(90), true)
+	else:
+		velocity = move_and_slide(velocity, Globals.UP, true, slope_force, deg2rad(90), true)
+	
+	$Label.set_text(str(velocity))
 
 
 func take_damage(attacker, amount, effect=null):
