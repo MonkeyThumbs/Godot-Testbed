@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Sensors/FloorSensor.gd" type="Script" id=1]
+
+[node name="FloorSensor" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 1024
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2( 12, 0 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 1024
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+position = Vector2( -12, 0 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 1024

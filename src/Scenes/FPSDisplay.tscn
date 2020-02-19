@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Scenes/FPSDisplay.gd" type="Script" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[node name="FPSDisplay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1280, 720 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1287.0
+margin_bottom = 727.0
+rect_min_size = Vector2( 1280, 720 )
+color = Color( 0, 0, 0, 0.47451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color( 0.51, 0.51, 0.68, 0.631373 )
+light_mask = 0
+margin_right = 200.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 200, 720 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 193.0
+margin_bottom = 713.0
+
+[node name="fps_label" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 186.0
+margin_bottom = 14.0
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_velocity_label" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 186.0
+margin_bottom = 32.0

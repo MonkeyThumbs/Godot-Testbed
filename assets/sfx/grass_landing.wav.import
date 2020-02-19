@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grass_landing.wav-e18f232206ddbd298e1f9e70ab48abcd.sample"
+
+[deps]
+
+source_file="res://assets/sfx/grass_landing.wav"
+dest_files=[ "res://.import/grass_landing.wav-e18f232206ddbd298e1f9e70ab48abcd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

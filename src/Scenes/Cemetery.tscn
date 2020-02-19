@@ -1,0 +1,315 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://assets/images/Gothicvania_Cemetery.png" type="Texture" id=1]
+[ext_resource path="res://src/player_v3/PlayerV3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/images/grid.png" type="Texture" id=3]
+[ext_resource path="res://src/Scenes/MainMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Scenes/FPSDisplay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Scenes/StatesStackDiplayer.tscn" type="PackedScene" id=8]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+var pause_timer = 0.0
+var orig_zoom = 0.0
+var orig_offset = Vector2()
+onready var camera = $PlayerV3/Camera2D
+onready var main_menu = $ParallaxBackground/ParallaxLayer3/MainMenu
+onready var fps_display = $ParallaxBackground/ParallaxLayer3/FPSDisplay
+
+func _ready():
+	orig_zoom = camera.zoom
+	orig_offset = camera.offset
+
+func _input(event):
+	if event.is_action_pressed(\"ui_cancel\"):
+		main_menu.visible = !main_menu.visible
+	if event.is_action_pressed(\"ui_debug_menu\"):
+		fps_display.visible = !fps_display.visible
+	
+	if event.is_action_pressed(\"debug_zstep_out\"):
+		if camera.zoom < Vector2(1.0,1.0):
+			camera.zoom += Vector2(0.1,0.1)
+		elif camera.zoom >= Vector2(1.0,1.0) && camera.zoom < Vector2(10.0,10.0):
+			camera.zoom += Vector2(1,1)
+	elif event.is_action_pressed(\"debug_zstep_in\") && camera.zoom > Vector2(0.01,0.01):
+		if camera.zoom <= Vector2(1.0,1.0) && camera.zoom > Vector2(0.1,0.1):
+			camera.zoom -= Vector2(0.1,0.1)
+		elif camera.zoom > Vector2(1.0,1.0):
+			camera.zoom -= Vector2(1.0,1.0)
+	
+#	if event.is_action_pressed(\"debug_music_toggle\"):
+#		$Scene/Music_Background.stream_paused = !$Scene/Music_Background.stream_paused
+#
+#
+#	if event.is_action_pressed(\"fullscreen_toggle\"):
+#		OS.set_window_fullscreen(!OS.is_window_fullscreen())
+#
+#	if event.is_action_pressed(\"gui_open\"):
+#		$Scene/ParallaxBackgrounds/Vinette/Vinette/GameSettings.visible = !$Scene/ParallaxBackgrounds/Vinette/Vinette/GameSettings.visible
+
+
+func _process(delta):
+	if Input.is_action_pressed(\"debug_zoom_out\") && camera.zoom < Vector2(10.0,10.0):
+		camera.zoom += Vector2(0.1,0.1) * delta
+		camera.offset.y += -24 * delta
+	elif Input.is_action_pressed(\"debug_zoom_in\") && camera.zoom > Vector2(0.01,0.01):
+		camera.zoom += Vector2(-0.1,-0.1) * delta
+		camera.offset.y += 24 * delta
+	elif Input.is_action_pressed(\"debug_zoom_reset\"):
+		camera.zoom = orig_zoom
+		camera.offset = orig_offset
+	
+	if Input.is_action_pressed(\"debug_pan_left\") && camera.zoom < Vector2(10.0,10.0):
+		camera.offset.x -= Globals.UNIT_SIZE * 2 * delta
+	elif Input.is_action_pressed(\"debug_pan_right\") && camera.zoom < Vector2(10.0,10.0):
+		camera.offset.x += Globals.UNIT_SIZE * 2 * delta
+	elif Input.is_action_pressed(\"debug_pan_up\") && camera.zoom < Vector2(10.0,10.0):
+		camera.offset.y -= Globals.UNIT_SIZE * 2 * delta
+	elif Input.is_action_pressed(\"debug_pan_down\") && camera.zoom < Vector2(10.0,10.0):
+		camera.offset.y += Globals.UNIT_SIZE * 2 * delta
+	
+	if Input.is_key_pressed(KEY_PAUSE):
+		if (pause_timer <= 0.0):
+			get_tree().paused = !get_tree().paused
+			pause_timer = 0.5
+				
+	if pause_timer > 0.0:
+		pause_timer -= delta
+"
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 6.00001, 24, 6.00001, 24, 24, 0, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 7.62939e-06, 6.00001, 24, 6.00001, 24, 24, 7.62939e-06, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00001, 24, 6.00001 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00001, 24, 6.00001 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 24, 24, 3.8147e-06, 24, 3.8147e-06, 18, 24, 6.00001 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 24, 24, 12, 24, 24, 18 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 12, 1.52588e-05, 24, 1.52588e-05, 24, 24, 0, 24, 0, 6.00002, 12, 1.52588e-05 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 24, 24, 0, 24, 0, 6.00001, 24, 18 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 0, 18, 12, 24, 0, 24, 0, 18 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 12, 1.52588e-05, 24, 6.00002, 24, 24, 0, 24, 0, 1.52588e-05 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 0, 1.52588e-05, 24, 1.52588e-05, 24, 24, 0, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 3.8147e-06, 1.52588e-05, 24, 1.52588e-05, 24, 24, 3.8147e-06, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 7.62939e-06, 1.52588e-05, 24, 1.52588e-05, 24, 24, 7.62939e-06, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 0, 1.52588e-05, 24, 1.52588e-05, 24, 24, 0, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 1.52588e-05, 1.52588e-05, 24, 1.52588e-05, 24, 24, 1.52588e-05, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+points = PoolVector2Array( 1.52588e-05, 1.52588e-05, 24, 1.52588e-05, 24, 24, 1.52588e-05, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+points = PoolVector2Array( 0, 1.52588e-05, 24, 1.52588e-05, 24, 24, 0, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 0, 1.52588e-05, 24, 1.52588e-05, 24, 24, 0, 24 )
+
+[sub_resource type="TileSet" id=20]
+0/name = "Gothicvania_Cemetery.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 24, 72, 192, 96 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 4, 1 )
+0/autotile/tile_size = Vector2( 24, 24 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [ {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="Cemetery" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 100
+offset = Vector2( -640, -360 )
+transform = Transform2D( 1, 0, 0, 1, -640, -360 )
+scroll_base_offset = Vector2( 640, 360 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+light_mask = 0
+motion_scale = Vector2( 0, 0 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.25098 )
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 1280, 720 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FPSDisplay" parent="ParallaxBackground/ParallaxLayer3" instance=ExtResource( 7 )]
+visible = false
+
+[node name="MainMenu" parent="ParallaxBackground/ParallaxLayer3" instance=ExtResource( 6 )]
+visible = false
+
+[node name="StatesStackDiplayer" parent="ParallaxBackground/ParallaxLayer3" instance=ExtResource( 8 )]
+margin_left = 1093.0
+margin_right = 1286.0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 20 )
+cell_size = Vector2( 24, 24 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+collision_use_kinematic = true
+collision_layer = 1024
+format = 1
+tile_data = PoolIntArray( 36, 0, 0, 1441792, 0, 2, 1441794, 0, 2, 1441795, 0, 2, 1441796, 0, 4, 1441799, 0, 5, 1441800, 0, 4, 1441802, 0, 4, 1441803, 0, 2, 1441804, 0, 4, 1441805, 0, 5, 1507328, 0, 65538, 1507329, 0, 65539, 1507330, 0, 65538, 1507331, 0, 65539, 1507332, 0, 65540, 1507333, 0, 65541, 1507334, 0, 65538, 1507335, 0, 65538, 1507336, 0, 65540, 1507337, 0, 65541, 1507338, 0, 65541, 1507339, 0, 65540, 1507340, 0, 65538, 1507341, 0, 65541, 1507342, 0, 65542, 1507343, 0, 65543, 1507346, 0, 3, 1507347, 0, 3, 1507348, 0, 4, 1507349, 0, 5, 1572864, 0, 131074, 1572865, 0, 131075, 1572866, 0, 131074, 1572867, 0, 131075, 1572868, 0, 131076, 1572869, 0, 131077, 1572870, 0, 131074, 1572871, 0, 131074, 1572872, 0, 131076, 1572873, 0, 131075, 1572874, 0, 131075, 1572875, 0, 131076, 1572876, 0, 131074, 1572877, 0, 131075, 1572878, 0, 131078, 1572879, 0, 131079, 1572880, 0, 65538, 1572881, 0, 65538, 1572882, 0, 65539, 1572883, 0, 65541, 1572884, 0, 65540, 1572885, 0, 65539, 1638400, 0, 196614, 1638401, 0, 196614, 1638402, 0, 196614, 1638403, 0, 196614, 1638404, 0, 196614, 1638405, 0, 196614, 1638406, 0, 196614, 1638407, 0, 196614, 1638408, 0, 196614, 1638409, 0, 196614, 1638410, 0, 196614, 1638411, 0, 196614, 1638412, 0, 196614, 1638413, 0, 196614, 1638414, 0, 196614, 1638415, 0, 196615, 1638416, 0, 131074, 1638417, 0, 131074, 1638418, 0, 131075, 1638419, 0, 131077, 1638420, 0, 131076, 1638421, 0, 131077 )
+
+[node name="PlayerV3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 146, 526 )
+
+[node name="Camera2D" type="Camera2D" parent="PlayerV3"]
+current = true
+[connection signal="state_changed" from="PlayerV3" to="ParallaxBackground/ParallaxLayer3/StatesStackDiplayer" method="_on_Player_state_changed"]

@@ -1,0 +1,236 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://src/player_v3/player_controller.gd" type="Script" id=1]
+[ext_resource path="res://src/player_v3/states/combat/stagger.gd" type="Script" id=2]
+[ext_resource path="res://src/player_v3/player_state_machine.gd" type="Script" id=3]
+[ext_resource path="res://src/player_v3/states/die.gd" type="Script" id=4]
+[ext_resource path="res://src/player_v3/states/motion/in_air/fall.gd" type="Script" id=5]
+[ext_resource path="res://src/player_v3/states/motion/on_ground/move.gd" type="Script" id=6]
+[ext_resource path="res://src/player_v3/states/motion/in_air/jump.gd" type="Script" id=7]
+[ext_resource path="res://src/player_v3/states/motion/on_ground/idle.gd" type="Script" id=8]
+[ext_resource path="res://assets/images/adventurer.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/adventurer_norm_00_n.png" type="Texture" id=10]
+[ext_resource path="res://src/player_v3/states/combat/attack.gd" type="Script" id=11]
+[ext_resource path="res://src/player_v3/health/Health.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Sensors/FloorSensor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/player_v3/states/motion/in_air/tumble.gd" type="Script" id=14]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 24.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 70, 73 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("StateMachine/Attack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_Sword_attack_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "die"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 83, 89 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fall"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 30, 32 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.75
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20, 23 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.2
+step = 0.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.199746 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 80, 82 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0734489, 0.131111, 0.196666 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0.0980392 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.0980392 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "tumble"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 24, 28 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 10, 16 ]
+}
+
+[node name="PlayerV3" type="KinematicBody2D"]
+collision_mask = 1024
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 418.0 ]
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 5 )
+shape = SubResource( 1 )
+
+[node name="FloorDetector" parent="." instance=ExtResource( 13 )]
+position = Vector2( 0, 24 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 9 )
+normal_map = ExtResource( 10 )
+vframes = 15
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 2 )
+anims/die = SubResource( 3 )
+anims/fall = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/jump = SubResource( 6 )
+anims/stagger = SubResource( 7 )
+anims/tumble = SubResource( 8 )
+anims/walk = SubResource( 9 )
+
+[node name="Health" parent="." instance=ExtResource( 12 )]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+START_STATE = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
+
+[node name="Tumble" type="Node" parent="StateMachine"]
+script = ExtResource( 14 )
+
+[node name="Stagger" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource( 11 )
+
+[node name="Die" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
+[connection signal="state_changed" from="StateMachine" to="." method="_on_StateMachine_state_changed"]

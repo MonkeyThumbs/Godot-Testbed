@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/unsheath.wav-7c0b512a08223035120681c34e3249f6.sample"
+
+[deps]
+
+source_file="res://assets/sfx/unsheath.wav"
+dest_files=[ "res://.import/unsheath.wav-7c0b512a08223035120681c34e3249f6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

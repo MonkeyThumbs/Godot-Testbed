@@ -1,0 +1,46 @@
+extends "on_ground.gd"
+
+
+export(float) var MAX_WALK_SPEED = 10 * Globals.UNIT_SIZE
+export(float) var MAX_RUN_SPEED = 12 * Globals.UNIT_SIZE
+
+
+func enter():
+	speed = 0.0
+	owner.velocity = Vector2.ZERO
+	
+	var input_direction = get_input_direction()
+	update_look_direction(input_direction)
+	owner.change_animation("walk")
+
+
+func handle_input(event : InputEvent):
+	if event.is_action_pressed("jump") && owner.check_is_on_floor():
+		emit_signal("finished", "tumble")
+	return .handle_input(event)
+
+
+func update(delta):
+	var input_direction = get_input_direction()
+	if not input_direction:
+		emit_signal("finished", "idle")
+	update_look_direction(input_direction)
+		
+	speed = MAX_RUN_SPEED if Input.is_action_pressed("run") else MAX_WALK_SPEED
+	var collision_info = move(speed, input_direction)
+	
+	if owner.velocity.y > Globals.SAFETY_MARGIN && !owner.check_is_on_floor():
+		print(owner.velocity)
+		emit_signal("finished", "fall")
+	
+	if not collision_info:
+		return
+	if collision_info.collider.is_in_group("environment"):
+		return null
+
+
+func move(speed, direction):
+	owner.velocity.x = direction.normalized().x * speed
+	if owner.get_slide_count() == 0:
+		return
+	return owner.get_slide_collision(0)
