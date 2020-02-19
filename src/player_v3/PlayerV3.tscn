@@ -179,6 +179,16 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 418.0 ]
 }
+snap_point = Vector2( 0, 30 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -20.0
+margin_top = -31.0
+margin_right = 20.0
+margin_bottom = -17.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 5 )

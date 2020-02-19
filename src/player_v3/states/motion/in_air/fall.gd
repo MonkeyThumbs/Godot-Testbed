@@ -1,13 +1,14 @@
 extends "../motion.gd"
 
 
-export(float) var AIR_STEERING_POWER = 5 * Globals.UNIT_SIZE
+var AIR_STEERING_POWER : float = 5 * Globals.UNIT_SIZE
 
 
 func enter():
 	var input_direction = get_input_direction()
 	update_look_direction(input_direction)
 	owner.change_animation("fall")
+	owner.is_jumping = false
 
 
 func update(delta):
