@@ -25,8 +25,7 @@ func update(delta):
 	if not input_direction:
 		emit_signal("finished", "idle")
 	update_look_direction(input_direction)
-		
-	speed = MAX_RUN_SPEED if Input.is_action_pressed("run") else MAX_WALK_SPEED
+	
 	var collision_info = move(speed, input_direction)
 	
 	if owner.velocity.y > Globals.SAFETY_MARGIN && !owner.check_is_on_floor():
@@ -40,6 +39,7 @@ func update(delta):
 
 
 func move(speed, direction):
+	speed =  MAX_RUN_SPEED if Input.is_action_pressed("run") else MAX_WALK_SPEED
 	owner.velocity.x = direction.normalized().x * speed
 	if owner.get_slide_count() == 0:
 		return

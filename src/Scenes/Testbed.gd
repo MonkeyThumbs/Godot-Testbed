@@ -32,8 +32,8 @@ func _input(event):
 #		$Scene/Music_Background.stream_paused = !$Scene/Music_Background.stream_paused
 #
 #
-#	if event.is_action_pressed("fullscreen_toggle"):
-#		OS.set_window_fullscreen(!OS.is_window_fullscreen())
+	if event.is_action_pressed("fullscreen_toggle"):
+		OS.set_window_fullscreen(!OS.is_window_fullscreen())
 #
 #	if event.is_action_pressed("gui_open"):
 #		$Scene/ParallaxBackgrounds/Vinette/Vinette/GameSettings.visible = !$Scene/ParallaxBackgrounds/Vinette/Vinette/GameSettings.visible

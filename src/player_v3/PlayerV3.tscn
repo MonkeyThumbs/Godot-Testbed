@@ -191,10 +191,12 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 5 )
 shape = SubResource( 1 )
 
 [node name="FloorDetector" parent="." instance=ExtResource( 13 )]
+visible = false
 position = Vector2( 0, 24 )
 
 [node name="Sprite" type="Sprite" parent="."]

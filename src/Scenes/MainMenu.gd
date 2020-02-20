@@ -18,4 +18,6 @@ func _on_Button3_pressed():
 
 
 func _on_Button4_pressed():
-	get_tree().change_scene("res://src/Scenes/Cemetery.tscn")
+	var err = get_tree().change_scene("res://src/Scenes/Cemetery.tscn")
+	if err:
+		print(err)

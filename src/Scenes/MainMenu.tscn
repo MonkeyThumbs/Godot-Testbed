@@ -46,7 +46,7 @@ text = "Player Testing"
 margin_top = 48.0
 margin_right = 144.0
 margin_bottom = 68.0
-text = "Cemetery (Broken)"
+text = "Cemetery"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button4" to="." method="_on_Button4_pressed"]
