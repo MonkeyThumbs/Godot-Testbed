@@ -27,4 +27,7 @@ const resolution_options = ["1280x720",
 enum facings {left = -1, right = 1}
 enum { STATUS_NONE, STATUS_INVINCIBLE, STATUS_POISONED, STATUS_STUNNED }
 
-var entrance_position : Vector2 = Vector2(748, 550)
+var entrance_position : Vector2 = Vector2(0, 0)
+
+var music_positions = {}
+var music_reset = true

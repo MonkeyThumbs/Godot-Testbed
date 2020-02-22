@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Trekking_Through_Smog.ogg-50474280bddbd62a00c1dffa39091962.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Trekking_Through_Smog.ogg"
+dest_files=[ "res://.import/Trekking_Through_Smog.ogg-50474280bddbd62a00c1dffa39091962.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

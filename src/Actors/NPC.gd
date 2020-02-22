@@ -38,33 +38,36 @@ func _on_Stamina_timeout():
 	$Stamina.stop()
 
 func _on_Player_Detector_body_entered_back(body):
-	if body is StaticBody2D:
+	if !body.is_in_group("Players"):
 		return
 	
 	change_facing()
+	velocity.x = 0
+	is_moving = false
 	$Stamina.stop()
 	$Patience.stop()
 
 func _on_Player_Detector_body_entered_front(body):
-	if body is StaticBody2D:
+	if !body.is_in_group("Players"):
 		change_facing()
 		velocity.x = 0
 		is_moving = true
 		$Stamina.start(stamina * randf())
 		$Patience.stop()
 	else:
-		change_facing()
+		velocity.x = 0
+		is_moving = false
 		$Stamina.stop()
 		$Patience.stop()
 
 
 func _on_Player_Detector_body_exited_back(body):
-	if body is StaticBody2D:
+	if !body.is_in_group("Players"):
 		return
 	$Patience.start(patience)
 
 
 func _on_Player_Detector_body_exited_front(body):
-	if body is StaticBody2D:
+	if !body.is_in_group("Players"):
 		return
 	$Patience.start(patience)
