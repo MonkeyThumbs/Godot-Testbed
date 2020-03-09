@@ -1,0 +1,2 @@
+class_name LightEffect
+extends Light2D

@@ -1,5 +1,5 @@
 tool
-extends Light2D
+extends LightEffect
 
 export(float) var START_ENERGY : float = 1.0
 export(float, 0.05, 120, 0.05) var duration_sec : float = 1.0

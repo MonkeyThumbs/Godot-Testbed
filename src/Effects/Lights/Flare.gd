@@ -1,5 +1,5 @@
 tool
-extends Light2D
+extends LightEffect
 
 export(float) var MIN_ENERGY : float = 0.0
 export(float) var MAX_ENERGY : float = 1.0

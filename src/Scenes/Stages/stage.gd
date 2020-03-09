@@ -13,12 +13,14 @@ export(float, 0, 1, 0.01) var MIN_AMBIENT_LIGHT : float = 0.0
 export(Color) var MODULATION_COLOR : Color = Color.white
 export(bool) var modulate_background : bool = true
 export(bool) var modulate_foreground : bool = true
+export(bool) var update_day_cycle : bool = true
 export(bool) var update_in_editor : bool = false
 
 var pause_timer = 0.0
 var orig_zoom = 0.0
 var orig_offset = Vector2()
 var player = null
+var is_daytime : bool = true
 
 var ambient_light_level : float = 1 setget set_ambient_light_level, get_ambient_light_level
 
@@ -62,7 +64,7 @@ func _exit_tree():
 		player.disconnect("mana_depleted", health_bar, "_on_mana_depleted")
 
 
-func _handled_input(event : InputEvent) -> void:
+func _handle_input(event : InputEvent) -> void:
 	if not Engine.editor_hint:
 		if event.is_action_pressed("debug_zstep_out"):
 			if camera.zoom < Vector2(1.0,1.0):
@@ -106,11 +108,6 @@ func _process(delta):
 		elif Input.is_action_pressed("debug_pan_down") && camera.zoom < Vector2(10.0,10.0):
 			camera.offset.y += Globals.UNIT_SIZE * 2 * delta
 		
-	#	if Input.is_key_pressed(KEY_BRACELEFT):
-	#		modulate_scene(-0.2 * delta)
-	#	elif Input.is_key_pressed(KEY_BRACERIGHT):
-	#		modulate_scene(0.2 * delta)
-		
 		if Input.is_key_pressed(KEY_1):
 			player.current_spell = Spells.FIREBOLT
 		elif Input.is_key_pressed(KEY_2):
@@ -118,15 +115,7 @@ func _process(delta):
 		elif Input.is_key_pressed(KEY_3):
 			player.current_spell = Spells.HEAL
 		
-		if Input.is_key_pressed(KEY_PAUSE):
-			if (pause_timer <= 0.0):
-				get_tree().paused = !get_tree().paused
-				pause_timer = 0.5
-		
-		if pause_timer > 0.0:
-			pause_timer -= delta
-		
-		_update_day_cycle(delta)
+		if update_day_cycle:	_update_day_cycle(delta)
 
 
 func _init_player() -> void:
@@ -158,10 +147,14 @@ func _init_day_cycle() -> void:
 		set_ambient_light_level( range_lerp(sin(((DAY_LENGTH_SEC - 
 			DAY_LENGTH_SEC * START_TIME_PERCENT) / DAY_LENGTH_SEC) * PI), 0,1, 
 			MIN_AMBIENT_LIGHT,MAX_AMBIENT_LIGHT))
+	
 	if not Engine.editor_hint:
 		day_timer.start(DAY_LENGTH_SEC - DAY_LENGTH_SEC * START_TIME_PERCENT)
 		set_ambient_light_level( range_lerp(sin((day_timer.time_left / 
 			DAY_LENGTH_SEC) * PI), 0,1, MIN_AMBIENT_LIGHT,MAX_AMBIENT_LIGHT))
+		if START_TIME_PERCENT >= DAYBREAK_LEVEL:    is_daytime = true
+		else:                                       is_daytime = false
+	
 	set_scene_modulation(Color(MODULATION_COLOR.r * get_ambient_light_level(),
 							MODULATION_COLOR.g * get_ambient_light_level(),
 							MODULATION_COLOR.b * get_ambient_light_level(),
@@ -180,8 +173,12 @@ func _update_day_cycle(delta : float):
 	modulate_scene(amount)
 	
 	if not Engine.editor_hint:
-		if get_ambient_light_level() >= DAYBREAK_LEVEL: emit_signal("daybreak")
-		else: emit_signal("nightfall")
+		if get_ambient_light_level() >= DAYBREAK_LEVEL and not is_daytime:
+			is_daytime = true
+			emit_signal("daybreak")
+		elif is_daytime: 
+			is_daytime = false
+			emit_signal("nightfall")
 
 
 func modulate_scene(amount : float) -> void:

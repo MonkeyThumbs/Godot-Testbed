@@ -17,14 +17,16 @@ func fade_light(light : Light2D, energy : float) -> void:
 func _on_daybreak() -> void:
 	self.fade_self(Color(1,1,1,0))
 	for light in self.get_children():
-		if light is Light2D: 
+		if light is LightEffect:
 			light.active = false
+		if light is Light2D: 
 			self.fade_light(light, 0)
 
 
 func _on_nightfall() -> void:
 	self.fade_self(Color(1,1,1,1))
 	for light in self.get_children():
+		if light is LightEffect: 
+			light.active = true
 		if light is Light2D: 
-#			light.active = true
 			self.fade_light(light, 1)
