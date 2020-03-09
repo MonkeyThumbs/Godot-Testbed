@@ -12,8 +12,10 @@ func update(delta):
 	var input_direction = get_input_direction()
 	owner.velocity.x = 0.0
 	
-	if input_direction:
+	if input_direction.x:
 		emit_signal("finished", "move")
+	elif input_direction.y > 0:
+		emit_signal("finished", "crouch")
 	
 	if owner.velocity.y > 0.0 && !owner.check_is_on_floor():
 		emit_signal("finished", "fall")

@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-behavior-tree-plugin/decorator.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://src/Enemies/Kolbolt/Kolbolt.gd"
+}, {
 "base": "Node",
 "class": "Leaf",
 "language": "GDScript",
@@ -43,6 +48,11 @@ _global_script_classes=[ {
 "class": "OnGround",
 "language": "GDScript",
 "path": "res://src/player_v3/states/motion/on_ground/on_ground.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/player_v3/player_controller.gd"
 }, {
 "base": "Node2D",
 "class": "Scene",
@@ -74,9 +84,11 @@ _global_script_class_icons={
 "Actor": "",
 "Condition": "",
 "Decorator": "",
+"Enemy": "",
 "Leaf": "",
 "Motion": "",
 "OnGround": "",
+"Player": "",
 "Scene": "",
 "Spell": "",
 "Stage": "",
@@ -86,7 +98,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Testbed"
+config/name="Testbed Git Repo"
 run/main_scene="res://src/Scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 

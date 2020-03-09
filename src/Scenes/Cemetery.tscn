@@ -541,23 +541,25 @@ color = Color( 0.352941, 0.352941, 0.352941, 1 )
 [node name="Light2D" type="Light2D" parent="Lighing"]
 position = Vector2( 1836, 456 )
 texture = ExtResource( 13 )
-texture_scale = 0.871503
+texture_scale = 0.888001
 color = Color( 1, 0.966667, 0, 1 )
-energy = 0.910829
+energy = 0.880206
 script = ExtResource( 14 )
 MIN_ENERGY = 0.6
 MAX_ENERGY = 1.2
 MIN_SCALE = 0.6
 MAX_SCALE = 1.2
+octaves = 4
 period = 0.5
 persistence = 0.8
+active = true
 
 [node name="Light2D2" type="Light2D" parent="Lighing"]
 position = Vector2( 0, 480 )
 texture = ExtResource( 13 )
-texture_scale = 0.860915
+texture_scale = 0.985238
 color = Color( 1, 0.966667, 0, 1 )
-energy = 0.920655
+energy = 0.904758
 script = ExtResource( 14 )
 __meta__ = {
 "_editor_description_": ""
@@ -566,22 +568,29 @@ MIN_ENERGY = 0.6
 MAX_ENERGY = 1.2
 MIN_SCALE = 0.6
 MAX_SCALE = 1.2
+octaves = 4
 period = 0.5
 persistence = 0.8
+active = true
 
 [node name="Light2D3" type="Light2D" parent="Lighing"]
 position = Vector2( 1030, 449 )
 texture = ExtResource( 13 )
-texture_scale = 0.47805
-energy = 0.904851
+texture_scale = 0.664394
+energy = 0.84407
 shadow_enabled = true
 script = ExtResource( 14 )
 __meta__ = {
 "_editor_description_": ""
 }
 MIN_ENERGY = 0.6
+MAX_ENERGY = 1.0
+MIN_SCALE = 0.0
+MAX_SCALE = 1.0
+octaves = 4
 period = 10.0
 persistence = 0.5
+active = true
 
 [node name="ExitCemetery" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0, 480 )

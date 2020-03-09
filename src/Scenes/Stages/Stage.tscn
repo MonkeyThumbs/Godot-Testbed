@@ -35,12 +35,16 @@ drag_margin_bottom = 0.5
 [node name="Entrances" type="Node2D" parent="."]
 
 [node name="Default" type="Position2D" parent="Entrances"]
+__meta__ = {
+"_gizmo_extents_": 24.0
+}
 
 [node name="Exits" type="Node2D" parent="."]
 
 [node name="ParallaxLayers" type="Node2D" parent="."]
 
 [node name="Tilemaps" type="Node2D" parent="."]
+z_index = -4
 
 [node name="Lighting" type="Node2D" parent="."]
 z_index = 1
@@ -53,7 +57,7 @@ script = ExtResource( 17 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="GUI" type="CanvasLayer" parent="."]
-layer = 128
+layer = 127
 
 [node name="Vinette" type="Sprite" parent="GUI"]
 self_modulate = Color( 1, 1, 1, 0.498039 )
@@ -68,15 +72,15 @@ margin_right = -1143.0
 margin_bottom = -679.0
 rect_scale = Vector2( 2, 2 )
 
-[node name="GameOverScreen" parent="GUI" instance=ExtResource( 4 )]
-visible = false
-text_fade_duration = 3.0
-
 [node name="DebugMenu" parent="GUI" instance=ExtResource( 6 )]
 visible = false
 
 [node name="MainMenu" parent="GUI" instance=ExtResource( 5 )]
 visible = false
+
+[node name="GameOverScreen" parent="GUI" instance=ExtResource( 4 )]
+visible = false
+text_fade_duration = 3.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0

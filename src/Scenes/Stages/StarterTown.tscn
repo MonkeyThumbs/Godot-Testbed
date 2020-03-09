@@ -37,6 +37,7 @@ process_priority = -3
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 24, 24 )
 cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+collision_use_kinematic = true
 collision_layer = 1024
 collision_mask = 0
 format = 1
@@ -44,8 +45,8 @@ tile_data = PoolIntArray( -720818, 16, 0, -458706, 17, 0, -458682, 15, 0, -13100
 
 [node name="StreetLampLight" parent="Lighting" index="0" instance=ExtResource( 4 )]
 position = Vector2( -35, 39 )
-texture_scale = 1.26378
-energy = 0.976087
+texture_scale = 1.37637
+energy = 1.01626
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -55,8 +56,8 @@ persistence = 7.0
 
 [node name="StreetLampLight2" parent="Lighting" index="1" instance=ExtResource( 4 )]
 position = Vector2( 443, 40 )
-texture_scale = 1.1422
-energy = 1.00088
+texture_scale = 1.25756
+energy = 0.983662
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -66,8 +67,8 @@ persistence = 7.0
 
 [node name="StreetLampLight3" parent="Lighting" index="2" instance=ExtResource( 4 )]
 position = Vector2( 1644, -32 )
-texture_scale = 1.18168
-energy = 0.987152
+texture_scale = 1.33783
+energy = 0.987576
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -81,7 +82,8 @@ position = Vector2( 1371, 87 )
 [node name="Vinette" parent="GUI" index="0"]
 self_modulate = Color( 1, 1, 1, 0.376471 )
 
-[node name="GameOverScreen" parent="GUI" index="2"]
+[node name="GameOverScreen" parent="GUI" index="4"]
+z_index = 100
 text_fade_duration = 2.0
 
 [node name="Music" parent="." index="12"]

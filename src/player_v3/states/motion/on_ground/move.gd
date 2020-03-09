@@ -22,8 +22,10 @@ func handle_input(event : InputEvent):
 
 func update(delta):
 	var input_direction = get_input_direction()
-	if not input_direction:
+	if not input_direction.x:
 		emit_signal("finished", "idle")
+	elif input_direction.y > 0:
+		emit_signal("finished", "crouch")
 	update_look_direction(input_direction)
 	
 	var collision_info = move(speed, input_direction)

@@ -10,7 +10,7 @@ onready var fade_rect = $FadeRect
 
 func _ready():
 	fade_rect.set_visible(true)
-	fade_tween.interpolate_property(fade_rect, "color", fade_rect.color, Color(0.0, 0.0, 0.0, 0.0), duration, Tween.TRANS_LINEAR, Tween.TRANS_QUINT)
+	fade_tween.interpolate_property(fade_rect, "self_modulate", fade_rect.self_modulate, Color(0.0, 0.0, 0.0, 0.0), duration, Tween.TRANS_LINEAR, Tween.TRANS_QUINT)
 	fade_tween.start()
 
 

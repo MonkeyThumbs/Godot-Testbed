@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/GUI/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/GUI/button_mask.bmp" type="BitMap" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/images/GUI/button_hover.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/GUI/button_normal.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/GUI/button_pressed.png" type="Texture" id=6]
+[ext_resource path="res://src/Effects/Transistion/FadeOut.res" type="PackedScene" id=7]
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
@@ -73,11 +74,15 @@ texture_click_mask = ExtResource( 2 )
 stretch_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Button4"]
-margin_left = 114.0
-margin_top = 24.0
-margin_right = 176.0
-margin_bottom = 38.0
-text = "Cemetery"
+anchor_left = 0.392
+anchor_top = 0.387
+anchor_right = 0.392
+anchor_bottom = 0.387
+margin_left = 9.928
+margin_top = 0.00600052
+margin_right = 48.928
+margin_bottom = 14.006
+text = "Castle"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -96,7 +101,7 @@ texture_click_mask = ExtResource( 2 )
 stretch_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Button3"]
-margin_left = 108.0
+margin_left = 114.0
 margin_top = 24.0
 margin_right = 183.0
 margin_bottom = 38.0
@@ -104,6 +109,9 @@ text = "Town(Night)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FadeOut" parent="." instance=ExtResource( 7 )]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="finished" from="FadeOut" to="." method="_on_FadeOut_finished"]

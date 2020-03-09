@@ -4,6 +4,7 @@ func _ready():
 	states_map = {
 		"idle": $Idle,
 		"move": $Move,
+		"crouch": $Crouch,
 		"jump": $Jump,
 		"tumble": $Tumble,
 		"wall_slide": $Wall_Slide,

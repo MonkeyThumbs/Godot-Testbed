@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody2D
 
 enum SPELLS {
@@ -38,8 +39,8 @@ func _physics_process(delta):
 
 
 func take_damage(attacker : Node, amount : int, effect = null):
-#	if self.is_a_parent_of(attacker):
-#		return
+	if self.is_a_parent_of(attacker):
+		return
 	$StateMachine/Stagger.knockback_direction = (attacker.global_position - global_position).normalized()
 	$StateMachine._change_state("stagger")
 	$Health.take_damage(amount, effect)

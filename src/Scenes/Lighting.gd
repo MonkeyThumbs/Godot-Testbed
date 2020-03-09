@@ -26,5 +26,5 @@ func _on_nightfall() -> void:
 	self.fade_self(Color(1,1,1,1))
 	for light in self.get_children():
 		if light is Light2D: 
-			light.active = true
+#			light.active = true
 			self.fade_light(light, 1)

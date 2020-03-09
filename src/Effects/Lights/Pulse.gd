@@ -11,6 +11,8 @@ onready var time_sec : float  = 0.0
 
 
 func _ready():
+	if Engine.editor_hint:
+		self.set_energy(MIN_ENERGY)
 	if not Engine.editor_hint:
 		self.set_energy(MIN_ENERGY)
 

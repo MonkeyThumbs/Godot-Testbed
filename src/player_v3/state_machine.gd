@@ -78,6 +78,6 @@ func _change_state(state_name):
 		
 		
 func _get_configuration_warning() -> String:
-	if not get_child_count() == 1:
+	if not get_child_count() >= 1:
 		return "A StateMachine should have at least one child state"
 	return ""

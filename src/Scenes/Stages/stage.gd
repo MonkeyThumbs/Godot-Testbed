@@ -136,7 +136,7 @@ func _init_player() -> void:
 	if GameData.stage_entrance < entrances.get_child_count():
 		player.set_position(entrances.get_child(GameData.stage_entrance).get_position())
 	else:
-		player.set_position(default_entrance.get_position())
+		player.set_global_position(default_entrance.get_position())
 	
 	player.connect("health_changed", health_bar, "_on_health_changed")
 	player.connect("max_health_changed", health_bar, "_on_max_health_changed")
