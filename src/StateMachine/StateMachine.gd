@@ -1,5 +1,4 @@
 extends Node
-class_name StateMachine
 
 var state = null setget set_state
 var previous_state = null

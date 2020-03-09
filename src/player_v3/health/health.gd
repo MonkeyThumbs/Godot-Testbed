@@ -1,15 +1,15 @@
 extends Node
 
-signal health_changed
+signal health_changed(health, amount)
 signal health_depleted
 signal status_changed
 
-var health = 0
-export(int) var max_health = 9
+var health : int = 0 setget ,get_health
+export(int) var max_health : int = 3 setget set_max_health, get_max_health
 
 var status = null
-const POISON_DAMAGE = 1
-var poison_cycles = 0
+const POISON_DAMAGE : int = 1
+var poison_cycles : int = 0
 
 func _ready():
 	health = max_health
@@ -27,26 +27,29 @@ func _change_status(new_status):
 	status = new_status
 	emit_signal('status_changed', new_status)
 
-func take_damage(amount, effect=null):
+func take_damage(amount : int, effect = null):
 	if status == Globals.STATUS_INVINCIBLE:
 		return
 	health -= amount
 	health = max(0, health)
-	emit_signal("health_changed", health)
+	emit_signal("health_changed", health, amount)
+	if health <= 0:
+		emit_signal("health_depleted")
+	
+#	print("%s got hit and took %s damage. Health: %s/%s" % [owner.get_name(), amount, health, max_health])
 
-	if not effect:
+	if !effect:
 		return
 	match effect[0]:
 		Globals.STATUS_POISONED:
 			_change_status(Globals.STATUS_POISONED)
 			poison_cycles = effect[1]
-#	print("%s got hit and took %s damage. Health: %s/%s" % [get_name(), amount, health, max_health])
 
 func heal(amount):
 	health += amount
 	health = max(health, max_health)
-	emit_signal("health_changed", health)
-#	print("%s got healed by %s points. Health: %s/%s" % [get_name(), amount, health, max_health])
+	emit_signal("health_changed", health ,amount)
+#	print("%s got healed by %s points. Health: %s/%s" % [owner.get_name(), amount, health, max_health])
 
 func _on_PoisonTimer_timeout():
 	take_damage(POISON_DAMAGE)
@@ -55,3 +58,15 @@ func _on_PoisonTimer_timeout():
 		_change_status(Globals.STATUS_NONE)
 		return
 	$PoisonTimer.start()
+
+
+func get_health() -> int:
+	return health
+
+
+func get_max_health() -> int:
+	return max_health
+
+
+func set_max_health(value : int) -> void:
+	max_health = value

@@ -1,9 +1,6 @@
+extends State
 
-extends "../state.gd"
-
-
-var knockback_direction = Vector2()
-
+var knockback_direction : Vector2 = Vector2()
 
 func enter():
 	owner.change_animation("stagger")

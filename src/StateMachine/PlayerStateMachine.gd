@@ -1,4 +1,4 @@
-extends StateMachine
+extends "./StateMachine.gd"
 
 func _ready():
 	add_state("idle")

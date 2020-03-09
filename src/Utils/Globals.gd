@@ -1,11 +1,5 @@
 extends Node
 
-const UP = Vector2 (0.0, -1.0)
-const gravity = Vector2(0.0, 960.0)
-const max_speed = Vector2(2400, 2400)
-const UNIT_SIZE = 24
-const SAFETY_MARGIN = 0.08
-
 const screen_resolutions = [Vector2(1280,720), 
 							Vector2(1366,768),
 							Vector2(1600,900),
@@ -24,6 +18,12 @@ const resolution_options = ["1280x720",
 							"3840x2160",
 							"4096x2160"]
 
+const UP = Vector2 (0.0, -1.0)
+const gravity = Vector2(0.0, 960.0)
+const max_speed = Vector2(2400, 2400)
+const UNIT_SIZE = 24
+const SAFETY_MARGIN = 0.08
+
 enum facings {left = -1, right = 1}
 enum { STATUS_NONE, STATUS_INVINCIBLE, STATUS_POISONED, STATUS_STUNNED }
 
@@ -31,3 +31,11 @@ var entrance_position : Vector2 = Vector2(0, 0)
 
 var music_positions = {}
 var music_reset = true
+
+
+
+
+static func reparent_node(parent : Node, child : Node, target : Node) -> void:
+	parent.remove_child(child)
+	target.add_child(child)
+	child.set_owner(target)

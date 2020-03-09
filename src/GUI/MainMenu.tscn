@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/GUI/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/GUI/button_mask.bmp" type="BitMap" id=2]
+[ext_resource path="res://assets/images/GUI/button_disabled.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/GUI/button_hover.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/GUI/button_normal.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/GUI/button_pressed.png" type="Texture" id=6]
+
+[node name="MainMenu" type="Control"]
+pause_mode = 2
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 494.0
+margin_top = 263.0
+margin_right = 785.0
+margin_bottom = 457.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 144, 0 )
+alignment = 1
+
+[node name="Button2" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+margin_right = 291.0
+margin_bottom = 62.0
+action_mode = 0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 4 )
+texture_click_mask = ExtResource( 2 )
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Button2"]
+margin_left = 129.0
+margin_top = 24.0
+margin_right = 162.0
+margin_bottom = 38.0
+text = "Town"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 291.0
+margin_bottom = 128.0
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 4 )
+texture_click_mask = ExtResource( 2 )
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Button4"]
+margin_left = 114.0
+margin_top = 24.0
+margin_right = 176.0
+margin_bottom = 38.0
+text = "Cemetery"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 291.0
+margin_bottom = 194.0
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 4 )
+texture_click_mask = ExtResource( 2 )
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Button3"]
+margin_left = 108.0
+margin_top = 24.0
+margin_right = 183.0
+margin_bottom = 38.0
+text = "Town(Night)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button3" to="." method="_on_Button3_pressed"]

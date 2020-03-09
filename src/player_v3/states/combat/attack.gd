@@ -9,5 +9,5 @@ func enter():
 	owner.change_animation("attack")
 
 
-func _on_Sword_attack_finished():
+func _on_animation_finished(anime_name):
 	emit_signal("finished", "idle")

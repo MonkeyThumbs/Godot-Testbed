@@ -2,12 +2,10 @@
 
 [ext_resource path="res://assets/images/Gothicvania_Cemetery.png" type="Texture" id=1]
 [ext_resource path="res://src/player_v3/PlayerV3.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/images/grid.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/Gothicvania_Cemetery_Background.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/Gothicvania_Cemetery_Graveyard.png" type="Texture" id=5]
-[ext_resource path="res://src/Scenes/MainMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/GUI/MainMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Scenes/FPSDisplay.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/Scenes/StatesStackDiplayer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/images/Gothicvania_Cemetery_Mountains.png" type="Texture" id=9]
 [ext_resource path="res://src/Objects/Exit.res" type="PackedScene" id=10]
 [ext_resource path="res://src/Effects/Transistion/FadeIn.res" type="PackedScene" id=11]
@@ -16,6 +14,8 @@
 [ext_resource path="res://src/Effects/Lights/Flicker.gd" type="Script" id=14]
 [ext_resource path="res://assets/music/Trekking_Through_Smog.ogg" type="AudioStream" id=15]
 [ext_resource path="res://src/Shaders/Fog.shader" type="Shader" id=16]
+[ext_resource path="res://src/Enemies/Kolbolt/Kolbolt.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/GUI/HealthBar.tscn" type="PackedScene" id=20]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -24,13 +24,14 @@ var pause_timer = 0.0
 var orig_zoom = 0.0
 var orig_offset = Vector2()
 onready var camera = $PlayerV3/Camera2D
-onready var main_menu = $GUI/ParallaxLayer3/MainMenu
-onready var fps_display = $GUI/ParallaxLayer3/FPSDisplay
+onready var main_menu = $GUI/MainMenu
+onready var fps_display = $GUI/FPSDisplay
 onready var player = $PlayerV3
 onready var fog = $ParallaxForeground/Fog/Sprite
 onready var music = $Music
 
 func _ready():
+	get_tree().set_pause(false)
 	orig_zoom = camera.zoom
 	orig_offset = camera.offset
 	if Globals.entrance_position.length() > 0:
@@ -41,9 +42,9 @@ func _ready():
 		playback_position = Globals.music_positions[self.name]
 	music.play(playback_position)
 
-func _input(event):
-	if event.is_action_pressed(\"ui_cancel\"):
-		main_menu.visible = !main_menu.visible
+func _unhandled_input(event):
+#	if event.is_action_pressed(\"ui_cancel\"):
+#		main_menu.visible = !main_menu.visible
 	if event.is_action_pressed(\"ui_debug_menu\"):
 		fps_display.visible = !fps_display.visible
 	
@@ -478,58 +479,23 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 12/shapes = [  ]
 12/z_index = 0
 
-[sub_resource type="ShaderMaterial" id=26]
+[sub_resource type="ShaderMaterial" id=25]
 shader = ExtResource( 16 )
 shader_param/color = Vector3( 0.35, 0.78, 0.48 )
 shader_param/OCTAVES = 4
 
-[sub_resource type="OpenSimplexNoise" id=27]
+[sub_resource type="OpenSimplexNoise" id=26]
 
-[sub_resource type="NoiseTexture" id=28]
+[sub_resource type="NoiseTexture" id=27]
 width = 2048
 height = 2048
-seamless = true
-noise = SubResource( 27 )
+noise = SubResource( 26 )
 
 [node name="Cemetery" type="Node2D"]
 script = SubResource( 1 )
 
-[node name="GUI" type="ParallaxBackground" parent="."]
-layer = 128
-offset = Vector2( -640, -360 )
-transform = Transform2D( 1, 0, 0, 1, -640, -360 )
-scroll_base_offset = Vector2( 640, 360 )
-scroll_ignore_camera_zoom = true
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="GUI"]
-light_mask = 0
-motion_scale = Vector2( 0, 0 )
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="TextureRect" type="TextureRect" parent="GUI/ParallaxLayer3"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0.25098 )
-margin_right = 1280.0
-margin_bottom = 720.0
-rect_min_size = Vector2( 1280, 720 )
-texture = ExtResource( 3 )
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FPSDisplay" parent="GUI/ParallaxLayer3" instance=ExtResource( 7 )]
-visible = false
-
-[node name="MainMenu" parent="GUI/ParallaxLayer3" instance=ExtResource( 6 )]
-visible = false
-
-[node name="StatesStackDiplayer" parent="GUI/ParallaxLayer3" instance=ExtResource( 8 )]
-visible = false
-margin_left = 1093.0
-margin_right = 1286.0
+[node name="FadeIn" parent="." instance=ExtResource( 11 )]
+layer = 127
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -575,8 +541,9 @@ color = Color( 0.352941, 0.352941, 0.352941, 1 )
 [node name="Light2D" type="Light2D" parent="Lighing"]
 position = Vector2( 1836, 456 )
 texture = ExtResource( 13 )
+texture_scale = 0.871503
 color = Color( 1, 0.966667, 0, 1 )
-energy = 1.12
+energy = 0.910829
 script = ExtResource( 14 )
 MIN_ENERGY = 0.6
 MAX_ENERGY = 1.2
@@ -588,8 +555,9 @@ persistence = 0.8
 [node name="Light2D2" type="Light2D" parent="Lighing"]
 position = Vector2( 0, 480 )
 texture = ExtResource( 13 )
+texture_scale = 0.860915
 color = Color( 1, 0.966667, 0, 1 )
-energy = 1.12
+energy = 0.920655
 script = ExtResource( 14 )
 __meta__ = {
 "_editor_description_": ""
@@ -604,6 +572,8 @@ persistence = 0.8
 [node name="Light2D3" type="Light2D" parent="Lighing"]
 position = Vector2( 1030, 449 )
 texture = ExtResource( 13 )
+texture_scale = 0.47805
+energy = 0.904851
 shadow_enabled = true
 script = ExtResource( 14 )
 __meta__ = {
@@ -612,6 +582,21 @@ __meta__ = {
 MIN_ENERGY = 0.6
 period = 10.0
 persistence = 0.5
+
+[node name="ExitCemetery" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0, 480 )
+new_scene = "res://src/Scenes/Cemetery.tscn"
+entrance_position = Vector2( 1858, 496 )
+
+[node name="ExitCity" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1827, 456 )
+new_scene = "res://src/Scenes/Town.tscn"
+entrance_position = Vector2( 24, 378 )
+reset_music = true
+
+[node name="Kolbolt" parent="." instance=ExtResource( 17 )]
+position = Vector2( 0, 524 )
+stun_duration = 0.3
 
 [node name="PlayerV3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 748, 551 )
@@ -624,36 +609,78 @@ limit_left = 0
 limit_right = 1825
 offset_v = -1.0
 
-[node name="ExitCity" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1827, 456 )
-new_scene = "res://src/Scenes/Town.tscn"
-entrance_position = Vector2( 24, 378 )
-reset_music = true
-
-[node name="ExitCemetery" parent="." instance=ExtResource( 10 )]
-position = Vector2( 0, 480 )
-new_scene = "res://src/Scenes/Cemetery.tscn"
-entrance_position = Vector2( 1858, 496 )
-
 [node name="ParallaxForeground" type="ParallaxBackground" parent="."]
 layer = 100
+scroll_ignore_camera_zoom = true
 
 [node name="Fog" type="ParallaxLayer" parent="ParallaxForeground"]
+visible = false
 scale = Vector2( 2.25, 2.25 )
-motion_scale = Vector2( 1.1, 1.1 )
-motion_mirroring = Vector2( 2048, 2048 )
+motion_scale = Vector2( 0, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxForeground/Fog"]
 self_modulate = Color( 1, 1, 1, 0.768627 )
-material = SubResource( 26 )
-texture = SubResource( 28 )
-centered = false
-
-[node name="FadeIn" parent="." instance=ExtResource( 11 )]
+material = SubResource( 25 )
+texture = SubResource( 27 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
 volume_db = -20.0
-[connection signal="state_changed" from="PlayerV3" to="GUI/ParallaxLayer3/StatesStackDiplayer" method="_on_Player_state_changed"]
-[connection signal="scene_changed" from="ExitCity" to="." method="_on_ExitCity_scene_changed"]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="FPSDisplay" parent="GUI" instance=ExtResource( 7 )]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="GUI/FPSDisplay"]
+self_modulate = Color( 1, 1, 1, 0.239216 )
+margin_left = 1061.0
+margin_right = 1287.0
+margin_bottom = 732.0
+rect_min_size = Vector2( 150, 150 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions" type="Label" parent="GUI/FPSDisplay/ColorRect2"]
+light_mask = 0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 220.0
+margin_bottom = 239.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "[/] - Adjust Ambient Light
+Page Up/Down - Smooth Zoom
+Home - Reset
+Arrow Keys - Pan
+Alt+Enter - Toggle Fullscreen
+F3 - Debug Info
+Esc - Menu
+
+WASD - Move
+Space - Jump
+Q - Cast
+E - Atttack
+X - Damage
+Num 1-9  - Change Spell
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" parent="GUI" instance=ExtResource( 6 )]
+visible = false
+
+[node name="HealthBar" parent="GUI" instance=ExtResource( 20 )]
+margin_left = 12.0
+margin_top = 24.0
+margin_right = -1137.0
+margin_bottom = -661.0
+rect_scale = Vector2( 1.2, 1.2 )
 [connection signal="scene_changed" from="ExitCemetery" to="." method="_on_ExitCemetery_scene_changed"]
+[connection signal="scene_changed" from="ExitCity" to="." method="_on_ExitCity_scene_changed"]
+[connection signal="health_changed" from="PlayerV3" to="GUI/HealthBar" method="_on_health_changed"]

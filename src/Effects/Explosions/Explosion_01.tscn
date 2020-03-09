@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/images/explosion-1.png" type="Texture" id=1]
+[ext_resource path="res://src/Effects/Explosions/Explosion.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/light.png" type="Texture" id=3]
+[ext_resource path="res://src/Effects/Lights/Flash.gd" type="Script" id=4]
+[ext_resource path="res://assets/sfx/Retro Explosion Short 01.wav" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "active"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 7 ]
+}
+
+[node name="Explosion_01" type="Node2D"]
+z_index = 100
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+autoplay = "active"
+anims/active = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 0.13
+color = Color( 1, 0.447059, 0, 1 )
+energy = -619.602
+script = ExtResource( 4 )
+START_ENERGY = 3.0
+duration_sec = 0.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+pitch_scale = 1.5
+autoplay = true
+[connection signal="animation_finished" from="Sprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

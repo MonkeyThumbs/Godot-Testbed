@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/GUI/StatusMeter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/life_meter_decor.png" type="Texture" id=2]
+[ext_resource path="res://src/GUI/HealthBar.gd" type="Script" id=3]
+
+[node name="HealthBar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1149.0
+margin_bottom = -685.0
+rect_min_size = Vector2( 120, 0 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" parent="." instance=ExtResource( 1 )]
+margin_left = 24.0
+margin_top = 7.0
+margin_right = 24.0
+margin_bottom = 7.0
+progress_over_color = Color( 0, 1, 0, 1 )
+progress_under_color = Color( 1, 0, 0, 1 )
+
+[node name="Mana" parent="." instance=ExtResource( 1 )]
+margin_left = 24.0
+margin_top = 17.0
+margin_right = 24.0
+margin_bottom = 17.0
+progress_over_color = Color( 0, 0.483333, 1, 1 )
+progress_under_color = Color( 0.00683323, 0, 0.41, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="health_changed" from="." to="Health" method="_on_value_changed"]
+[connection signal="mana_changed" from="." to="Mana" method="_on_value_changed"]
+[connection signal="max_health_changed" from="." to="Health" method="_on_max_value_changed"]
+[connection signal="max_mana_changed" from="." to="Mana" method="_on_max_value_changed"]

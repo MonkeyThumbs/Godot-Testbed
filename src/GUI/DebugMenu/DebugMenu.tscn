@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/GUI/DebugMenu/FPSLabel.gd" type="Script" id=1]
+[ext_resource path="res://src/GUI/DebugMenu/InputHistory.gd" type="Script" id=2]
+[ext_resource path="res://src/GUI/DebugMenu/LineEdit.gd" type="Script" id=3]
+[ext_resource path="res://src/GUI/DebugMenu/DebugMenu.gd" type="Script" id=4]
+
+[sub_resource type="Theme" id=1]
+
+[node name="DebugMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1280, 720 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1287.0
+margin_bottom = 727.0
+rect_min_size = Vector2( 1280, 720 )
+color = Color( 0, 0, 0, 0.47451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightPanel" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color( 0.509804, 0.509804, 0.678431, 0.631373 )
+light_mask = 0
+margin_right = 200.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 200, 720 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RightPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 193.0
+margin_bottom = 713.0
+
+[node name="FPSLabel" type="Label" parent="HBoxContainer/RightPanel/VBoxContainer"]
+margin_right = 186.0
+margin_bottom = 14.0
+theme = SubResource( 1 )
+text = "FPS:"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 204.0
+margin_right = 1076.0
+margin_bottom = 720.0
+
+[node name="InputHistory" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+margin_right = 872.0
+margin_bottom = 690.0
+rect_min_size = Vector2( 872, 690 )
+focus_mode = 2
+bbcode_enabled = true
+scroll_following = true
+selection_enabled = true
+script = ExtResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
+margin_top = 694.0
+margin_right = 872.0
+margin_bottom = 718.0
+clear_button_enabled = true
+caret_blink = true
+script = ExtResource( 3 )
+
+[node name="LeftPanel" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color( 0.509804, 0.509804, 0.678431, 0.631373 )
+light_mask = 0
+margin_left = 1080.0
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 200, 720 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 193.0
+margin_bottom = 713.0
+[connection signal="command_entered" from="." to="HBoxContainer/VBoxContainer/InputHistory" method="_on_DebugMenu_command_entered"]
+[connection signal="text_entered" from="HBoxContainer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="text_entered" from="HBoxContainer/VBoxContainer/LineEdit" to="HBoxContainer/VBoxContainer/LineEdit" method="_on_LineEdit_text_entered"]
