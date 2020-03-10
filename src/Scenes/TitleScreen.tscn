@@ -86,11 +86,12 @@ texture = ExtResource( 4 )
 [node name="Light2D" type="Light2D" parent="GUI"]
 position = Vector2( 641, 742 )
 texture = ExtResource( 6 )
-texture_scale = 1.64238
-energy = -0.566008
+energy = 0.267936
 script = ExtResource( 5 )
 MIN_ENERGY = 0.2
-duration_sec = 2.0
+MAX_ENERGY = 0.5
+MIN_SCALE = 1.0
+duration_sec = 3.0
 
 [node name="MainMenu" parent="GUI" instance=ExtResource( 2 )]
 margin_top = 120.0

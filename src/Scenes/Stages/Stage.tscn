@@ -28,9 +28,11 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 offset_v = -1.0
 drag_margin_left = 0.05
-drag_margin_top = 0.3
+drag_margin_top = 0.35
 drag_margin_right = 0.05
-drag_margin_bottom = 0.5
+drag_margin_bottom = 0.65
+editor_draw_screen = false
+editor_draw_limits = true
 
 [node name="Entrances" type="Node2D" parent="."]
 
