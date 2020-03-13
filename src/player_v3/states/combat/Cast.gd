@@ -16,7 +16,7 @@ func _on_animation_finished(_anim_name):
 	var spell_file = Spells.Files[spell_name]
 	var spell = load(spell_file)
 	var spell_instance = spell.instance()
-	spell_instance.look_direction = owner.look_direction
+	spell_instance.look_direction.x = owner.look_direction.x
 	#spell_instance.position = owner.position
 	# change state 
 	if spell_instance.spell_type == spell_instance.Spell_Types.PERSISTANT:

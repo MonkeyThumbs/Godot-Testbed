@@ -33,10 +33,7 @@ func update(delta):
 	if owner.velocity.y > Globals.SAFETY_MARGIN && !owner.check_is_on_floor():
 		emit_signal("finished", "fall")
 	
-	if not collision_info:
-		return
-	if collision_info.collider.is_in_group("environment"):
-		return null
+	return .update(delta)
 
 
 func move(speed, direction):

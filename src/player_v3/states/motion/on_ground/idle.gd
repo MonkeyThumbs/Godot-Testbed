@@ -19,3 +19,5 @@ func update(delta):
 	
 	if owner.velocity.y > 0.0 && !owner.check_is_on_floor():
 		emit_signal("finished", "fall")
+	
+	return .update(delta)

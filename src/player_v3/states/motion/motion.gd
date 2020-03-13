@@ -21,7 +21,8 @@ func get_look_direction() -> Vector2:
 
 func update_look_direction(direction):
 	if direction and owner.get_look_direction() != direction:
-		owner.set_look_direction(direction)
+		if direction.x:
+			owner.set_look_direction(direction)
 	if not direction.x in [-1, 1]:
 		return
 	owner.get_node("Sprite").set_scale(Vector2(direction.x, 1))
