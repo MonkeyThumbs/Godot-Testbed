@@ -2,6 +2,7 @@
 
 [ext_resource path="res://assets/images/Gothicvania_Cemetery.png" type="Texture" id=1]
 [ext_resource path="res://src/player_v3/PlayerV3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Enemies/Skeleton/Skeleton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/images/Gothicvania_Cemetery_Background.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/Gothicvania_Cemetery_Graveyard.png" type="Texture" id=5]
 [ext_resource path="res://src/GUI/MainMenu.tscn" type="PackedScene" id=6]
@@ -14,7 +15,6 @@
 [ext_resource path="res://src/Effects/Lights/Flicker.gd" type="Script" id=14]
 [ext_resource path="res://assets/music/Trekking_Through_Smog.ogg" type="AudioStream" id=15]
 [ext_resource path="res://src/Shaders/Fog.shader" type="Shader" id=16]
-[ext_resource path="res://src/Enemies/Kolbolt/Kolbolt.tscn" type="PackedScene" id=17]
 [ext_resource path="res://src/GUI/HealthBar.tscn" type="PackedScene" id=20]
 
 [sub_resource type="GDScript" id=1]
@@ -198,6 +198,11 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 0/autotile/z_index_map = [  ]
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 3, 1 ),
 "one_way": false,
@@ -324,6 +329,11 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 1/autotile/z_index_map = [  ]
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 20 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 4 ),
 "one_way": false,
@@ -354,6 +364,11 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 2/autotile/z_index_map = [  ]
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 22 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 1 ),
 "one_way": false,
@@ -377,6 +392,10 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 3/tile_mode = 0
 3/occluder_offset = Vector2( 0, 0 )
 3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
 4/name = "Gothicvania_Cemetery.png 4"
@@ -388,6 +407,10 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 4/tile_mode = 0
 4/occluder_offset = Vector2( 0, 0 )
 4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
 5/name = "Gothicvania_Cemetery.png 5"
@@ -399,6 +422,10 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 5/tile_mode = 0
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
 5/shapes = [  ]
 5/z_index = 0
 6/name = "Gothicvania_Cemetery.png 6"
@@ -410,6 +437,10 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 6/tile_mode = 0
 6/occluder_offset = Vector2( 0, 0 )
 6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
 6/shapes = [  ]
 6/z_index = 0
 7/name = "Gothicvania_Cemetery.png 7"
@@ -421,6 +452,10 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 7/tile_mode = 0
 7/occluder_offset = Vector2( 0, 0 )
 7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
 7/shapes = [  ]
 7/z_index = 0
 8/name = "Gothicvania_Cemetery.png 8"
@@ -432,6 +467,10 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 8/tile_mode = 0
 8/occluder_offset = Vector2( 0, 0 )
 8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
 8/shapes = [  ]
 8/z_index = 0
 9/name = "Gothicvania_Cemetery.png 9"
@@ -443,6 +482,10 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 9/tile_mode = 0
 9/occluder_offset = Vector2( 0, 0 )
 9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
 9/shapes = [  ]
 9/z_index = 0
 10/name = "Gothicvania_Cemetery.png 10"
@@ -454,6 +497,10 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 10/tile_mode = 0
 10/occluder_offset = Vector2( 0, 0 )
 10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
 10/shapes = [  ]
 10/z_index = 0
 11/name = "Gothicvania_Cemetery.png 11"
@@ -465,6 +512,10 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 11/tile_mode = 0
 11/occluder_offset = Vector2( 0, 0 )
 11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
 11/shapes = [  ]
 11/z_index = 0
 12/name = "Gothicvania_Cemetery.png 12"
@@ -476,6 +527,10 @@ points = PoolVector2Array( 24, 24, 1.52588e-05, 24, 1.52588e-05, 6.00002, 24, 6.
 12/tile_mode = 0
 12/occluder_offset = Vector2( 0, 0 )
 12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
 12/shapes = [  ]
 12/z_index = 0
 
@@ -541,25 +596,23 @@ color = Color( 0.352941, 0.352941, 0.352941, 1 )
 [node name="Light2D" type="Light2D" parent="Lighing"]
 position = Vector2( 1836, 456 )
 texture = ExtResource( 13 )
-texture_scale = 0.888001
+texture_scale = 0.936388
 color = Color( 1, 0.966667, 0, 1 )
-energy = 0.880206
+energy = 0.852698
 script = ExtResource( 14 )
 MIN_ENERGY = 0.6
 MAX_ENERGY = 1.2
 MIN_SCALE = 0.6
 MAX_SCALE = 1.2
-octaves = 4
 period = 0.5
 persistence = 0.8
-active = true
 
 [node name="Light2D2" type="Light2D" parent="Lighing"]
 position = Vector2( 0, 480 )
 texture = ExtResource( 13 )
-texture_scale = 0.985238
+texture_scale = 0.975264
 color = Color( 1, 0.966667, 0, 1 )
-energy = 0.904758
+energy = 0.874333
 script = ExtResource( 14 )
 __meta__ = {
 "_editor_description_": ""
@@ -568,29 +621,22 @@ MIN_ENERGY = 0.6
 MAX_ENERGY = 1.2
 MIN_SCALE = 0.6
 MAX_SCALE = 1.2
-octaves = 4
 period = 0.5
 persistence = 0.8
-active = true
 
 [node name="Light2D3" type="Light2D" parent="Lighing"]
 position = Vector2( 1030, 449 )
 texture = ExtResource( 13 )
-texture_scale = 0.664394
-energy = 0.84407
+texture_scale = 0.558316
+energy = 0.836331
 shadow_enabled = true
 script = ExtResource( 14 )
 __meta__ = {
 "_editor_description_": ""
 }
 MIN_ENERGY = 0.6
-MAX_ENERGY = 1.0
-MIN_SCALE = 0.0
-MAX_SCALE = 1.0
-octaves = 4
 period = 10.0
 persistence = 0.5
-active = true
 
 [node name="ExitCemetery" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0, 480 )
@@ -603,10 +649,6 @@ new_scene = "res://src/Scenes/Town.tscn"
 entrance_position = Vector2( 24, 378 )
 reset_music = true
 
-[node name="Kolbolt" parent="." instance=ExtResource( 17 )]
-position = Vector2( 0, 524 )
-stun_duration = 0.3
-
 [node name="PlayerV3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 748, 551 )
 
@@ -618,12 +660,17 @@ limit_left = 0
 limit_right = 1825
 offset_v = -1.0
 
+[node name="Skeleton" parent="." instance=ExtResource( 3 )]
+position = Vector2( 552, 543.709 )
+
+[node name="Skeleton2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1278, 543.709 )
+
 [node name="ParallaxForeground" type="ParallaxBackground" parent="."]
 layer = 100
 scroll_ignore_camera_zoom = true
 
 [node name="Fog" type="ParallaxLayer" parent="ParallaxForeground"]
-visible = false
 scale = Vector2( 2.25, 2.25 )
 motion_scale = Vector2( 0, 0 )
 

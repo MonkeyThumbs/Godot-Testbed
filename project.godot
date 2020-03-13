@@ -29,10 +29,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-behavior-tree-plugin/decorator.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "Enemy",
+"base": "MobController",
+"class": "EnemyController",
 "language": "GDScript",
-"path": "res://src/Enemies/Kolbolt/Kolbolt.gd"
+"path": "res://src/Controllers/EnemyController.gd"
 }, {
 "base": "Node",
 "class": "Leaf",
@@ -43,6 +43,11 @@ _global_script_classes=[ {
 "class": "LightEffect",
 "language": "GDScript",
 "path": "res://src/Effects/Lights/LightEffect.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "MobController",
+"language": "GDScript",
+"path": "res://src/Controllers/MobController.gd"
 }, {
 "base": "State",
 "class": "Motion",
@@ -89,9 +94,10 @@ _global_script_class_icons={
 "Actor": "",
 "Condition": "",
 "Decorator": "",
-"Enemy": "",
+"EnemyController": "",
 "Leaf": "",
 "LightEffect": "",
+"MobController": "",
 "Motion": "",
 "OnGround": "",
 "Player": "",

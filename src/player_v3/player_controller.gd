@@ -10,9 +10,13 @@ enum SPELLS {
 signal direction_changed(new_direction)
 signal state_changed(current_state)
 signal health_changed(health, amount)
+# warning-ignore:unused_signal
 signal mana_changed(mana, amount)
+# warning-ignore:unused_signal
 signal max_health_changed(health)
+# warning-ignore:unused_signal
 signal max_mana_changed(mana)
+# warning-ignore:unused_signal
 signal mana_depleted
 signal health_depleted
 

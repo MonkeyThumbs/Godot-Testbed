@@ -16,7 +16,7 @@ export(TYPE) var type = TYPE.UNKNOWN
 
 
 func _on_body_entered(body):
-	if body is Player || body is Enemy:
+	if body is Player || body is EnemyController:
 		body.take_damage(self, damage)
 
 
