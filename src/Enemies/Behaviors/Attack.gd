@@ -1,6 +1,6 @@
 extends "res://addons/godot-behavior-tree-plugin/action.gd"
 
-onready var done : bool = false
+onready var is_done : bool = false
 
 func enter(tick: Tick) -> void:
 	pass
@@ -14,14 +14,19 @@ func close(tick: Tick) -> void:
 func exit(tick: Tick) -> void:
 	pass
 
-func tick(_tick: Tick) -> int:
-	owner.velocity.x = 0
+func tick(tick: Tick) -> int:
+	var state := OK
 	if not owner.check_can_see_player():
-#		owner.velocity.x = 0
 		owner.update_look_direction(-owner.get_look_direction())
-		return FAILED
-	return OK if done else ERR_BUSY
+		state = FAILED
+	elif not owner.check_can_attack():
+		tick.blackboard.set("last_known_player_location", owner.get_player_position())
+		state = ERR_BUSY
+	elif not is_done:
+		state = ERR_BUSY
+	
+	return state
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	done = true
+	is_done = true

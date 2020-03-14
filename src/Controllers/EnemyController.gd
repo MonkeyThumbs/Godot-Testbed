@@ -41,7 +41,13 @@ func check_can_see_player() -> bool:
 			return true
 	return false
 
-
+func get_player_position() -> Vector2:
+	var player = null
+	for body in visible_bodies:
+		if body.is_in_group("player"):
+			player = body
+			break
+	return player
 
 func _on_LineOfSight_body_entered(body):
 	visible_bodies.append(body)

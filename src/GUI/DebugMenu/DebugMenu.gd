@@ -5,6 +5,8 @@ signal command_entered(command, text)
 func _unhandled_input(event : InputEvent):
 	if event.is_action_pressed("ui_debug_menu"):
 		self.set_visible(!self.is_visible())
+		if self.is_visible():
+			$HBoxContainer/VBoxContainer/LineEdit.grab_focus()
 
 func _on_LineEdit_text_entered(new_text : String):
 	var commands = []

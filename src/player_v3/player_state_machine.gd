@@ -34,12 +34,8 @@ func _unhandled_input(event):
 	Here we only handle input that can interrupt states, otherwise we let the 
 	state node handle it
 	"""
-#	if event.is_action_pressed("attack"):
-#		if current_state == $Attack:
-#			return
-#		_change_state("attack")
-#		return
-	current_state.handle_input(event)
+	if current_state:
+		current_state.handle_input(event)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

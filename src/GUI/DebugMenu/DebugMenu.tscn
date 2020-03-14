@@ -99,5 +99,5 @@ margin_top = 7.0
 margin_right = 193.0
 margin_bottom = 713.0
 [connection signal="command_entered" from="." to="HBoxContainer/VBoxContainer/InputHistory" method="_on_DebugMenu_command_entered"]
-[connection signal="text_entered" from="HBoxContainer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
 [connection signal="text_entered" from="HBoxContainer/VBoxContainer/LineEdit" to="HBoxContainer/VBoxContainer/LineEdit" method="_on_LineEdit_text_entered"]
+[connection signal="text_entered" from="HBoxContainer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]

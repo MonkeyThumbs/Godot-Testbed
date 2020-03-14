@@ -4,6 +4,10 @@ signal visible_changed(visibility)
 
 var scene : String
 
+func _ready():
+	if is_visible():
+		$CenterContainer/VBoxContainer/Button2.grab_focus()
+
 func _unhandled_input(event : InputEvent):
 	if event.is_action_pressed("ui_cancel"):
 		set_visible(!is_visible())
@@ -30,3 +34,8 @@ func _on_FadeOut_finished():
 	var err = get_tree().change_scene(scene)
 	if err:
 		print(err)
+
+
+func _on_MainMenu_visible_changed(visibility):
+	if visibility == true:
+		$CenterContainer/VBoxContainer/Button2.grab_focus()

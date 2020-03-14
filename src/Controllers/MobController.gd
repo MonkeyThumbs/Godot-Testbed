@@ -100,8 +100,6 @@ func update_knockback_force(delta : float) -> void:
 		knockback_force.y -= 240 * delta * knockback_force.normalized().y
 	else:
 		knockback_force.y = 0.0
-	
-	print(knockback_force)
 
 
 func change_animation(name : String) -> void:

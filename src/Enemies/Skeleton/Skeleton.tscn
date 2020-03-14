@@ -1,28 +1,29 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/Enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/skeleton.png" type="Texture" id=2]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/sequence.gd" type="Script" id=3]
-[ext_resource path="res://src/Enemies/Kolbolt/Behaviors/IsVisible.gd" type="Script" id=4]
-[ext_resource path="res://src/Enemies/Kolbolt/Behaviors/Rise.gd" type="Script" id=5]
+[ext_resource path="res://src/Enemies/Behaviors/IsVisible.gd" type="Script" id=4]
+[ext_resource path="res://src/Enemies/Behaviors/Rise.gd" type="Script" id=5]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/mem_sequence.gd" type="Script" id=6]
-[ext_resource path="res://src/Enemies/Kolbolt/Behaviors/Shamble.gd" type="Script" id=7]
-[ext_resource path="res://src/Enemies/Kolbolt/Behaviors/CanMove.gd" type="Script" id=8]
-[ext_resource path="res://src/Enemies/Kolbolt/Behaviors/Turn.gd" type="Script" id=9]
-[ext_resource path="res://src/Enemies/Kolbolt/Behaviors/Fall.gd" type="Script" id=10]
+[ext_resource path="res://src/Enemies/Behaviors/Shamble.gd" type="Script" id=7]
+[ext_resource path="res://src/Enemies/Behaviors/CanMove.gd" type="Script" id=8]
+[ext_resource path="res://src/Enemies/Behaviors/Turn.gd" type="Script" id=9]
+[ext_resource path="res://src/Enemies/Behaviors/Fall.gd" type="Script" id=10]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/mem_selector.gd" type="Script" id=11]
+[ext_resource path="res://assets/images/skeleton_n.png" type="Texture" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.0
-height = 52.0
+height = 34.0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7, 32 )
+extents = Vector2( 7, 24 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 7, 32 )
+extents = Vector2( 7, 24 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "die"
 length = 0.75
 step = 0.05
@@ -75,7 +76,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.75
 step = 0.05
 tracks/0/type = "value"
@@ -109,9 +110,9 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.65 ),
+"times": PoolRealArray( 0, 0.55 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ true, false ]
 }
 tracks/3/type = "value"
@@ -121,13 +122,13 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.65 ),
+"times": PoolRealArray( 0, 0.55 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "stagger"
 length = 0.1
 tracks/0/type = "value"
@@ -155,7 +156,7 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -182,20 +183,47 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/DamageBox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="Skeleton" instance=ExtResource( 1 )]
+snap_point = Vector2( 0, 28 )
 run_speed = 120.0
 
 [node name="CollisionShape2D" parent="." index="0"]
-visible = false
-position = Vector2( 0, 6 )
+position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="2"]
-self_modulate = Color( 0.823529, 0.639216, 0.34902, 1 )
 texture = ExtResource( 2 )
+normal_map = ExtResource( 12 )
 vframes = 2
 hframes = 8
+
+[node name="BloodSplatter" parent="Sprite" index="0"]
+self_modulate = Color( 0, 1, 0, 1 )
 
 [node name="FloorSensor" parent="Sprite" index="1"]
 visible = false
@@ -204,26 +232,24 @@ visible = false
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DamageBox" index="0"]
-position = Vector2( 3, 6 )
+position = Vector2( 3, 4 )
 shape = SubResource( 2 )
 disabled = true
 
-[node name="Hitbox" parent="Sprite" index="6"]
-visible = false
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" index="0"]
-position = Vector2( 0, 6 )
+position = Vector2( 0, 4 )
 shape = SubResource( 3 )
 disabled = true
 
 [node name="EdgeSensor" parent="Sprite" index="7"]
-visible = false
+position = Vector2( 24, 27 )
+distance = 3.0
 
 [node name="AnimationPlayer" parent="." index="3"]
-anims/die = SubResource( 6 )
-anims/rise = SubResource( 4 )
-anims/stagger = SubResource( 7 )
-anims/walk = SubResource( 5 )
+anims/die = SubResource( 4 )
+anims/rise = SubResource( 5 )
+anims/stagger = SubResource( 6 )
+anims/walk = SubResource( 7 )
 
 [node name="BehaviorSequence" type="Node" parent="BehaviorTree" index="0"]
 script = ExtResource( 3 )
@@ -259,4 +285,5 @@ wait_time = 5.0
 wait_time = 3.0
 
 [node name="VisibilityNotifier2D" parent="." index="8"]
-visible = false
+position = Vector2( 0, 4 )
+rect = Rect2( -7, -24, 17, 48 )

@@ -45,8 +45,8 @@ tile_data = PoolIntArray( -720818, 16, 0, -458706, 17, 0, -458682, 15, 0, -13100
 
 [node name="StreetLampLight" parent="Lighting" index="0" instance=ExtResource( 4 )]
 position = Vector2( -35, 39 )
-texture_scale = 1.31526
-energy = 1.00365
+texture_scale = 1.19119
+energy = 0.996048
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -56,8 +56,8 @@ persistence = 7.0
 
 [node name="StreetLampLight2" parent="Lighting" index="1" instance=ExtResource( 4 )]
 position = Vector2( 443, 40 )
-texture_scale = 1.0821
-energy = 1.00734
+texture_scale = 1.29297
+energy = 1.00595
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -67,8 +67,8 @@ persistence = 7.0
 
 [node name="StreetLampLight3" parent="Lighting" index="2" instance=ExtResource( 4 )]
 position = Vector2( 1644, -32 )
-texture_scale = 1.28721
-energy = 0.998311
+texture_scale = 1.21332
+energy = 1.01511
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -83,7 +83,7 @@ run_speed = 100.0
 [node name="Vinette" parent="GUI" index="0"]
 self_modulate = Color( 1, 1, 1, 0.376471 )
 
-[node name="GameOverScreen" parent="GUI" index="4"]
+[node name="GameOverScreen" parent="GUI" index="2"]
 z_index = 100
 text_fade_duration = 2.0
 

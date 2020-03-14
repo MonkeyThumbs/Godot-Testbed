@@ -16,8 +16,11 @@ func exit(_tick: Tick) -> void:
 	pass
 
 func tick(_tick: Tick) -> int:
+	var state := OK
+	
 	owner.change_animation("walk")
 	owner.velocity.x = owner.get_look_direction().normalized().x * owner.get_run_speed()
+	
 	if owner.get_node("PatrolTimer").time_left <= 0:
 		owner.get_node("PatrolTimer").stop()
 		owner.get_node("IdleTimer").start()

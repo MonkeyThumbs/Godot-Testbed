@@ -38,12 +38,10 @@ gap = 18.0
 length = 24.0
 
 [node name="AttackRangeSensor" parent="Sprite" instance=ExtResource( 5 )]
-visible = false
 MAX_RANGE = 40.0
 MIN_RANGE = 12.0
 
 [node name="LineOfSight" type="Area2D" parent="Sprite"]
-visible = false
 collision_layer = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/LineOfSight"]

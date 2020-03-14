@@ -8,6 +8,11 @@ func open(_tick: Tick) -> void:
 	elif owner.get_node("IdleTimer").is_paused():
 		owner.get_node("IdleTimer").set_paused(false)
 
+
+func close(tick: Tick) -> void:
+	tick.blackboard.set("Risen", false)
+
+
 func tick(_tick: Tick) -> int:
 	owner.velocity.x = 0
 	if owner.get_node("IdleTimer").time_left <= 0:

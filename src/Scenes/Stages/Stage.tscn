@@ -16,6 +16,7 @@ script = ExtResource( 2 )
 wait_time = 0.001
 
 [node name="FadeIn" parent="." instance=ExtResource( 1 )]
+duration = 2.0
 
 [node name="AmbientLight" type="CanvasModulate" parent="."]
 light_mask = 1048575
@@ -67,6 +68,7 @@ texture = ExtResource( 7 )
 centered = false
 
 [node name="HealthBar" parent="GUI" instance=ExtResource( 3 )]
+show_behind_parent = true
 light_mask = 0
 margin_left = 6.0
 margin_top = 6.0
@@ -74,15 +76,17 @@ margin_right = -1143.0
 margin_bottom = -679.0
 rect_scale = Vector2( 2, 2 )
 
+[node name="GameOverScreen" parent="GUI" instance=ExtResource( 4 )]
+visible = false
+show_behind_parent = true
+z_index = 1
+text_fade_duration = 3.0
+
 [node name="DebugMenu" parent="GUI" instance=ExtResource( 6 )]
 visible = false
 
 [node name="MainMenu" parent="GUI" instance=ExtResource( 5 )]
 visible = false
-
-[node name="GameOverScreen" parent="GUI" instance=ExtResource( 4 )]
-visible = false
-text_fade_duration = 3.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0

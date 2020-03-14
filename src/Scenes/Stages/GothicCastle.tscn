@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Scenes/Stages/Stage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Scenes/Stages/Tilesets/GothicCastle.tres" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/Effects/Lights/Pulse.gd" type="Script" id=5]
 [ext_resource path="res://assets/music/4.dc64ex4.ogg" type="AudioStream" id=6]
 [ext_resource path="res://src/Enemies/Skeleton/Skeleton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Enemies/Hellhound/Hellhound.tscn" type="PackedScene" id=8]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 closed = false
@@ -59,9 +60,9 @@ tile_data = PoolIntArray( -65536, 8, 0, 65536, 8, 0, 196608, 8, 0, 327680, 8, 0,
 [node name="Light2D" type="Light2D" parent="Lighting" index="1"]
 position = Vector2( 390, 476 )
 texture = ExtResource( 3 )
-texture_scale = 0.881398
+texture_scale = 0.908201
 color = Color( 1, 0.8, 0.00784314, 1 )
-energy = 0.836053
+energy = 0.85735
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 0.796078 )
 script = ExtResource( 4 )
@@ -73,9 +74,9 @@ MIN_SCALE = 0.8
 visible = false
 position = Vector2( 1900, 554 )
 texture = ExtResource( 3 )
-texture_scale = 0.692144
+texture_scale = 0.412358
 color = Color( 1, 0, 0, 1 )
-energy = 1.16439
+energy = 0.404978
 script = ExtResource( 5 )
 MIN_ENERGY = 0.1
 MAX_ENERGY = 2.0
@@ -85,9 +86,9 @@ duration_sec = 6.0
 [node name="Candle11" type="Light2D" parent="Lighting" index="3"]
 position = Vector2( 344, 557 )
 texture = ExtResource( 3 )
-texture_scale = 0.0362809
+texture_scale = 0.0342617
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 1.12017
+energy = 1.22813
 script = ExtResource( 4 )
 MIN_ENERGY = 0.7
 MAX_ENERGY = 1.5
@@ -97,9 +98,9 @@ MAX_SCALE = 0.05
 [node name="Candle" type="Light2D" parent="Lighting" index="4"]
 position = Vector2( 731, 559 )
 texture = ExtResource( 3 )
-texture_scale = 0.250227
+texture_scale = 0.236724
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 0.986442
+energy = 0.817312
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -109,9 +110,9 @@ MAX_SCALE = 0.3
 [node name="Candle12" type="Light2D" parent="Lighting" index="5"]
 position = Vector2( 689, 558 )
 texture = ExtResource( 3 )
-texture_scale = 0.248338
+texture_scale = 0.252922
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 0.925647
+energy = 1.10111
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -121,9 +122,9 @@ MAX_SCALE = 0.3
 [node name="Candle13" type="Light2D" parent="Lighting" index="6"]
 position = Vector2( 850, 557 )
 texture = ExtResource( 3 )
-texture_scale = 0.240829
+texture_scale = 0.249996
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 1.0601
+energy = 1.04493
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -133,9 +134,9 @@ MAX_SCALE = 0.3
 [node name="Candle7" type="Light2D" parent="Lighting" index="7"]
 position = Vector2( 480, 556 )
 texture = ExtResource( 3 )
-texture_scale = 0.240261
+texture_scale = 0.266866
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 1.14225
+energy = 1.04266
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -145,9 +146,9 @@ MAX_SCALE = 0.3
 [node name="Candle8" type="Light2D" parent="Lighting" index="8"]
 position = Vector2( 129, 554 )
 texture = ExtResource( 3 )
-texture_scale = 0.247859
+texture_scale = 0.242054
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 1.10694
+energy = 1.03541
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -157,9 +158,9 @@ MAX_SCALE = 0.3
 [node name="Candle9" type="Light2D" parent="Lighting" index="9"]
 position = Vector2( 86, 553 )
 texture = ExtResource( 3 )
-texture_scale = 0.24193
+texture_scale = 0.261449
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 0.846894
+energy = 0.916467
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -169,9 +170,9 @@ MAX_SCALE = 0.3
 [node name="Candle10" type="Light2D" parent="Lighting" index="10"]
 position = Vector2( 7, 554 )
 texture = ExtResource( 3 )
-texture_scale = 0.244206
+texture_scale = 0.259722
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 1.05486
+energy = 0.751059
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -181,9 +182,9 @@ MAX_SCALE = 0.3
 [node name="Candle2" type="Light2D" parent="Lighting" index="11"]
 position = Vector2( 805, 558 )
 texture = ExtResource( 3 )
-texture_scale = 0.24904
+texture_scale = 0.263633
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 0.970587
+energy = 1.07405
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -193,9 +194,9 @@ MAX_SCALE = 0.3
 [node name="Candle3" type="Light2D" parent="Lighting" index="12"]
 position = Vector2( 1164, 520 )
 texture = ExtResource( 3 )
-texture_scale = 0.258898
+texture_scale = 0.244535
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 0.902461
+energy = 0.990851
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -205,9 +206,9 @@ MAX_SCALE = 0.3
 [node name="Candle4" type="Light2D" parent="Lighting" index="13"]
 position = Vector2( 1307, 517 )
 texture = ExtResource( 3 )
-texture_scale = 0.240475
+texture_scale = 0.238147
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 1.01562
+energy = 1.03007
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -217,9 +218,9 @@ MAX_SCALE = 0.3
 [node name="Candle5" type="Light2D" parent="Lighting" index="14"]
 position = Vector2( 1403, 520 )
 texture = ExtResource( 3 )
-texture_scale = 0.235954
+texture_scale = 0.24008
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 0.952664
+energy = 1.04778
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -229,9 +230,9 @@ MAX_SCALE = 0.3
 [node name="Candle6" type="Light2D" parent="Lighting" index="15"]
 position = Vector2( 1499, 519 )
 texture = ExtResource( 3 )
-texture_scale = 0.233051
+texture_scale = 0.250228
 color = Color( 1, 0.262745, 0.00784314, 1 )
-energy = 0.944674
+energy = 1.07846
 script = ExtResource( 4 )
 MIN_ENERGY = 0.5
 MAX_ENERGY = 1.5
@@ -249,7 +250,10 @@ occluder = SubResource( 2 )
 occluder = SubResource( 3 )
 
 [node name="Skeleton" parent="Enemies" index="0" instance=ExtResource( 7 )]
-position = Vector2( 1034, 537 )
+position = Vector2( 1034, 548 )
+
+[node name="Hellhound" parent="Enemies" index="1" instance=ExtResource( 8 )]
+position = Vector2( 1207, 552 )
 
 [node name="Vinette" parent="GUI" index="0"]
 visible = false

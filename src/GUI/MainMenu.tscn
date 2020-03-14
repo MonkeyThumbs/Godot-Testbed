@@ -41,6 +41,10 @@ alignment = 1
 [node name="Button2" type="TextureButton" parent="CenterContainer/VBoxContainer"]
 margin_right = 291.0
 margin_bottom = 62.0
+focus_neighbour_top = NodePath("../Button3")
+focus_neighbour_bottom = NodePath("../Button4")
+focus_next = NodePath("../Button4")
+focus_previous = NodePath("../Button3")
 action_mode = 0
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
@@ -64,6 +68,10 @@ __meta__ = {
 margin_top = 66.0
 margin_right = 291.0
 margin_bottom = 128.0
+focus_neighbour_top = NodePath("../Button2")
+focus_neighbour_bottom = NodePath("../Button3")
+focus_next = NodePath("../Button3")
+focus_previous = NodePath("../Button2")
 shortcut_in_tooltip = false
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
@@ -91,6 +99,10 @@ __meta__ = {
 margin_top = 132.0
 margin_right = 291.0
 margin_bottom = 194.0
+focus_neighbour_top = NodePath("../Button4")
+focus_neighbour_bottom = NodePath("../Button2")
+focus_next = NodePath("../Button2")
+focus_previous = NodePath("../Button4")
 shortcut_in_tooltip = false
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
@@ -111,6 +123,7 @@ __meta__ = {
 }
 
 [node name="FadeOut" parent="." instance=ExtResource( 7 )]
+[connection signal="visible_changed" from="." to="." method="_on_MainMenu_visible_changed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
