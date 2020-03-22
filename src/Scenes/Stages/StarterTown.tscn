@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Scenes/Stages/Stage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Scenes/Stages/Tilesets/GothicvaniaTown.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/Effects/Lights/StreetLampLight.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Effects/Lights/Flicker.gd" type="Script" id=5]
 [ext_resource path="res://src/Scenes/Stages/Parallax/TownNight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Enemies/Wizard/Wizard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Enemies/Kolbolt/Kolbolt.tscn" type="PackedScene" id=9]
 
 [node name="StarterTown" instance=ExtResource( 1 )]
@@ -45,8 +46,8 @@ tile_data = PoolIntArray( -720818, 16, 0, -458706, 17, 0, -458682, 15, 0, -13100
 
 [node name="StreetLampLight" parent="Lighting" index="0" instance=ExtResource( 4 )]
 position = Vector2( -35, 39 )
-texture_scale = 1.19119
-energy = 0.996048
+texture_scale = 1.11658
+energy = 0.983151
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -56,8 +57,8 @@ persistence = 7.0
 
 [node name="StreetLampLight2" parent="Lighting" index="1" instance=ExtResource( 4 )]
 position = Vector2( 443, 40 )
-texture_scale = 1.29297
-energy = 1.00595
+texture_scale = 1.26717
+energy = 1.02001
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -67,8 +68,8 @@ persistence = 7.0
 
 [node name="StreetLampLight3" parent="Lighting" index="2" instance=ExtResource( 4 )]
 position = Vector2( 1644, -32 )
-texture_scale = 1.21332
-energy = 1.01511
+texture_scale = 1.30659
+energy = 1.01049
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -76,7 +77,10 @@ MIN_SCALE = 0.9
 MAX_SCALE = 1.5
 persistence = 7.0
 
-[node name="Kolbolt" parent="Enemies" index="0" instance=ExtResource( 9 )]
+[node name="Wizard" parent="Enemies" index="0" instance=ExtResource( 7 )]
+position = Vector2( 2154.96, 51.1746 )
+
+[node name="Kolbolt" parent="Enemies" index="1" instance=ExtResource( 9 )]
 position = Vector2( 1371, 87 )
 run_speed = 100.0
 

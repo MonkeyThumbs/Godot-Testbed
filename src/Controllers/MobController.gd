@@ -13,11 +13,11 @@ signal mana_depleted
 export(int) var slope_force :int = 1
 export(Vector2) var snap_point : Vector2 = Vector2(0, 0)
 export(float) var run_speed : float = 216.0 setget ,get_run_speed
+export(Vector2) var local_gravity : Vector2 = Vector2.DOWN setget set_local_gravity, get_local_gravity
 
 var look_direction : Vector2 = Vector2(1, 0) setget set_look_direction, get_look_direction
 var velocity = Vector2(0, 0)
 var knockback_force = Vector2(0, 0) setget set_knockback_force,  get_knockback_force
-var local_gravity : Vector2 = Vector2.DOWN setget set_local_gravity, get_local_gravity
 var is_dead : bool = false
 var is_stunned : bool = false
 var stun_timer : float = 0

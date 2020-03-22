@@ -9,5 +9,6 @@ func enter():
 	owner.change_animation("attack")
 
 
-func _on_animation_finished(anime_name):
-	emit_signal("finished", "idle")
+func _on_animation_finished(anime_name : String):
+	if anime_name == "attack":
+		emit_signal("finished", "idle")

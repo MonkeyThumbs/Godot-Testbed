@@ -1,6 +1,7 @@
 extends "../motion.gd"
 
 func enter() -> void:
+	owner.velocity = Vector2.ZERO
 	owner.change_animation("ledge_hang")
 	owner.set_local_gravity(Vector2(0.0, 0.0))
 	owner.velocity = Vector2(0.0, 0.0)
@@ -13,8 +14,7 @@ func handle_input(event : InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		emit_signal("finished", "fall")
 	elif event.is_action_pressed("move_up"):
-		pass
-#		emit_signal("finished", "fall")
+		emit_signal("finished", "ledge_climb")
 
 
 func update(delta : float) -> void:

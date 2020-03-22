@@ -3,6 +3,7 @@ extends Actor
 export(float) var patience = 3.0
 export(float) var stamina = 5.0
 
+
 func _ready():
 	randomize()
 	var time = randf() * stamina
@@ -20,6 +21,8 @@ func _get_h_weight() -> float:
 	return 0.2 if is_on_floor() else 0.1
 
 func _on_Patience_timeout():
+	if is_interacting:
+		yield($Interaction, "interaction_stop")
 	randomize()
 	var turn = randi() % 100
 	if turn >= 33:
@@ -38,7 +41,7 @@ func _on_Stamina_timeout():
 	$Stamina.stop()
 
 func _on_Player_Detector_body_entered_back(body):
-	if !body.is_in_group("Players"):
+	if !body.is_in_group("player"):
 		return
 	
 	change_facing()
@@ -46,9 +49,10 @@ func _on_Player_Detector_body_entered_back(body):
 	is_moving = false
 	$Stamina.stop()
 	$Patience.stop()
+	interact()
 
 func _on_Player_Detector_body_entered_front(body):
-	if !body.is_in_group("Players"):
+	if !body.is_in_group("player"):
 		change_facing()
 		velocity.x = 0
 		is_moving = true
@@ -59,15 +63,16 @@ func _on_Player_Detector_body_entered_front(body):
 		is_moving = false
 		$Stamina.stop()
 		$Patience.stop()
+		interact()
 
 
 func _on_Player_Detector_body_exited_back(body):
-	if !body.is_in_group("Players"):
+	if !body.is_in_group("player"):
 		return
 	$Patience.start(patience)
 
 
 func _on_Player_Detector_body_exited_front(body):
-	if !body.is_in_group("Players"):
+	if !body.is_in_group("player"):
 		return
 	$Patience.start(patience)

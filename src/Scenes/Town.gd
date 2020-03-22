@@ -124,8 +124,8 @@ func _update_day_cycle(delta : float):
 	set_ambient_light(ambient_light + amount)
 #	print(get_ambient_light())
 	
-	if get_ambient_light() >= DAYBREAK_LEVEL: emit_signal("daybreak")
-	else: emit_signal("nightfall")
+#	if get_ambient_light() >= DAYBREAK_LEVEL: emit_signal("daybreak")
+#	else: emit_signal("nightfall")
 
 
 func modulate_scene(amount : float) -> void:

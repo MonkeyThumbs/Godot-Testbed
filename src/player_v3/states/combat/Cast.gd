@@ -17,13 +17,16 @@ func _on_animation_finished(_anim_name):
 	var spell = load(spell_file)
 	var spell_instance = spell.instance()
 	spell_instance.look_direction.x = owner.look_direction.x
-	#spell_instance.position = owner.position
-	# change state 
+	
 	if spell_instance.spell_type == spell_instance.Spell_Types.PERSISTANT:
 		var node = owner.get_node("./Spells/Persistant/")
 		node.add_child(spell_instance)
 		emit_signal("finished", "cast_loop")
 	else:
-		var node = owner.get_node("./Spells/Projectile")
+		spell_instance.position = owner.get_global_position()
+		spell_instance.position.x *= owner.look_direction.x
+		var node = owner.get_parent()
 		node.add_child(spell_instance)
 		emit_signal("finished", "idle")
+
+	print(spell_instance.position)

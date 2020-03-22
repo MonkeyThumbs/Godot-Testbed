@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/images/light.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/lamp light.png" type="Texture" id=5]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 48, 72, 9.00001, 72, 9.00001, 21, 48, 21 )
 
@@ -84,6 +83,10 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 0/autotile/z_index_map = [  ]
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
 1/name = "Windows"
@@ -102,6 +105,10 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 1/autotile/z_index_map = [  ]
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
 2/name = "Wall_01"
@@ -120,6 +127,11 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 2/autotile/z_index_map = [  ]
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 4 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 4 ),
 "one_way": false,
@@ -210,6 +222,10 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 3/autotile/z_index_map = [  ]
 3/occluder_offset = Vector2( 0, 0 )
 3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
 4/name = "Boardwalk"
@@ -228,6 +244,11 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 4/autotile/z_index_map = [  ]
 4/occluder_offset = Vector2( 0, 0 )
 4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 16 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
 4/shapes = [ {
 "autotile_coord": Vector2( 0, 3 ),
 "one_way": false,
@@ -251,6 +272,11 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 5/tile_mode = 0
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape = SubResource( 18 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -268,6 +294,10 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 6/tile_mode = 0
 6/occluder_offset = Vector2( 0, 0 )
 6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
 6/shapes = [  ]
 6/z_index = 0
 7/name = "Gothicvania_TownV2.png 7"
@@ -279,6 +309,11 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 7/tile_mode = 0
 7/occluder_offset = Vector2( 0, 0 )
 7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape = SubResource( 19 )
+7/shape_one_way = false
+7/shape_one_way_margin = 1.0
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -296,6 +331,11 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 8/tile_mode = 0
 8/occluder_offset = Vector2( 0, 0 )
 8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape = SubResource( 20 )
+8/shape_one_way = false
+8/shape_one_way_margin = 1.0
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -313,6 +353,10 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 9/tile_mode = 0
 9/occluder_offset = Vector2( 0, 0 )
 9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
 9/shapes = [  ]
 9/z_index = 1
 10/name = "Gothicvania_TownV2.png 10"
@@ -324,6 +368,11 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 10/tile_mode = 0
 10/occluder_offset = Vector2( 0, 0 )
 10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape = SubResource( 1 )
+10/shape_one_way = false
+10/shape_one_way_margin = 1.0
 10/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -341,6 +390,10 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 11/tile_mode = 0
 11/occluder_offset = Vector2( 0, 0 )
 11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
 11/shapes = [  ]
 11/z_index = 1
 12/name = "Gothicvania_TownV2.png 12"
@@ -352,6 +405,10 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 12/tile_mode = 0
 12/occluder_offset = Vector2( 0, 0 )
 12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
 12/shapes = [  ]
 12/z_index = 0
 13/name = "Gothicvania_TownV2.png 13"
@@ -363,6 +420,10 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 13/tile_mode = 0
 13/occluder_offset = Vector2( 0, 0 )
 13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
 13/shapes = [  ]
 13/z_index = 0
 14/name = "Gothicvania_TownV2.png 14"
@@ -374,6 +435,10 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 14/tile_mode = 0
 14/occluder_offset = Vector2( 0, 0 )
 14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
 14/shapes = [  ]
 14/z_index = 1
 15/name = "Gothicvania_TownV2.png 15"
@@ -385,6 +450,11 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 15/tile_mode = 0
 15/occluder_offset = Vector2( 0, 0 )
 15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape = SubResource( 2 )
+15/shape_one_way = false
+15/shape_one_way_margin = 1.0
 15/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -401,6 +471,11 @@ points = PoolVector2Array( 0, 2, 33, 2, 33, 52, 0, 52 )
 16/tile_mode = 0
 16/occluder_offset = Vector2( 0, 0 )
 16/navigation_offset = Vector2( 0, 0 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape = SubResource( 3 )
+16/shape_one_way = false
+16/shape_one_way_margin = 1.0
 16/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -417,9 +492,17 @@ MIN_AMBIENT_LIGHT = 0.4
 
 [node name="AmbientLight" parent="." index="2"]
 light_mask = 0
-color = Color( 0.521569, 0.521569, 0.521569, 1 )
+color = Color( 0.4, 0.4, 0.4, 1 )
 
-[node name="Lighting" parent="." index="5"]
+[node name="TileMap" type="TileMap" parent="." index="7"]
+tile_set = SubResource( 21 )
+cell_size = Vector2( 24, 24 )
+collision_use_kinematic = true
+collision_layer = 1024
+format = 1
+tile_data = PoolIntArray( -262147, 1, 65537, -262146, 1, 65538, -327675, 14, 0, -196614, 2, 1, -196613, 2, 131075, -196612, 2, 65539, -196611, 1, 131073, -196610, 1, 131074, -196609, 2, 65539, -262144, 2, 65539, -262143, 2, 65539, -262142, 2, 7, -131078, 2, 1, -131077, 2, 2, -131076, 2, 65539, -131075, 1, 131073, -131074, 1, 196610, -131073, 2, 65539, -196608, 2, 131075, -196607, 2, 65539, -196606, 2, 7, -196599, 15, 0, -65542, 2, 65537, -65541, 2, 65538, -65540, 2, 65539, -65539, 1, 262145, -65538, 1, 262146, -65537, 2, 3, -131072, 2, 65539, -131071, 2, 65539, -131070, 2, 131079, -6, 2, 131073, -5, 2, 131074, -4, 2, 65539, -3, 2, 131076, -2, 2, 131078, -1, 2, 3, -65536, 2, 65539, -65535, 2, 131075, -65534, 2, 65543, 65530, 2, 196609, 65531, 2, 196610, 65532, 2, 196611, 65533, 2, 196612, 65534, 2, 196613, 65535, 2, 196614, 0, 2, 196615, 1, 2, 196616, 2, 2, 196617, 131065, 2, 262144, 131066, 2, 262145, 131067, 2, 262146, 131068, 2, 262147, 131069, 2, 262148, 131070, 2, 262149, 131071, 2, 262150, 65536, 2, 262151, 65537, 2, 262152, 65538, 2, 262153, 65539, 2, 262154, 65540, 2, 262155, 65541, 2, 262154, 65542, 2, 262155, 65543, 2, 262154, 65544, 2, 262155, 65545, 2, 262154, 65546, 2, 262155, 65547, 2, 262154, 65548, 2, 262155, 65549, 2, 262154, 65550, 2, 262155, 196601, 2, 327691, 196602, 2, 327691, 196603, 2, 327690, 196604, 2, 327691, 196605, 2, 327690, 196606, 2, 327691, 196607, 2, 327690, 131072, 2, 327691, 131073, 2, 327690, 131074, 2, 327691, 131075, 2, 327690, 131076, 2, 327691, 131077, 2, 327690, 131078, 2, 327691, 131079, 2, 327690, 131080, 2, 327691, 131081, 2, 327690, 131082, 2, 327691, 131083, 2, 327690, 131084, 2, 327691, 131085, 2, 327690, 131086, 2, 327691, 131087, 2, 327690, 262137, 2, 393226, 262138, 2, 393226, 262139, 2, 393226, 262140, 2, 393226, 262141, 2, 393226, 262142, 2, 393226, 262143, 2, 393226, 196608, 2, 393226, 196609, 2, 393226, 196610, 2, 393226, 196611, 2, 393226, 196612, 2, 393226, 196613, 2, 393226, 196614, 2, 393226, 196615, 2, 393226, 196616, 2, 393226, 196617, 2, 393226, 196618, 2, 393226, 196619, 2, 393226, 196620, 2, 393226, 196621, 2, 393226, 196622, 2, 393226, 196623, 2, 393226 )
+
+[node name="Lighting" parent="." index="9"]
 light_mask = 1048575
 
 [node name="Light2D" type="Light2D" parent="Lighting" index="1"]
@@ -441,11 +524,3 @@ texture = ExtResource( 5 )
 position = Vector2( 12.5, 6.5 )
 z_index = 1
 texture = ExtResource( 5 )
-
-[node name="TileMap" type="TileMap" parent="." index="7"]
-tile_set = SubResource( 21 )
-cell_size = Vector2( 24, 24 )
-collision_use_kinematic = true
-collision_layer = 1024
-format = 1
-tile_data = PoolIntArray( -262147, 1, 65537, -262146, 1, 65538, -327675, 14, 0, -196614, 2, 1, -196613, 2, 131075, -196612, 2, 65539, -196611, 1, 131073, -196610, 1, 131074, -196609, 2, 65539, -262144, 2, 65539, -262143, 2, 65539, -262142, 2, 7, -131078, 2, 1, -131077, 2, 2, -131076, 2, 65539, -131075, 1, 131073, -131074, 1, 196610, -131073, 2, 65539, -196608, 2, 131075, -196607, 2, 65539, -196606, 2, 7, -196599, 15, 0, -65542, 2, 65537, -65541, 2, 65538, -65540, 2, 65539, -65539, 1, 262145, -65538, 1, 262146, -65537, 2, 3, -131072, 2, 65539, -131071, 2, 65539, -131070, 2, 131079, -6, 2, 131073, -5, 2, 131074, -4, 2, 65539, -3, 2, 131076, -2, 2, 131078, -1, 2, 3, -65536, 2, 65539, -65535, 2, 131075, -65534, 2, 65543, 65530, 2, 196609, 65531, 2, 196610, 65532, 2, 196611, 65533, 2, 196612, 65534, 2, 196613, 65535, 2, 196614, 0, 2, 196615, 1, 2, 196616, 2, 2, 196617, 131065, 2, 262144, 131066, 2, 262145, 131067, 2, 262146, 131068, 2, 262147, 131069, 2, 262148, 131070, 2, 262149, 131071, 2, 262150, 65536, 2, 262151, 65537, 2, 262152, 65538, 2, 262153, 65539, 2, 262154, 65540, 2, 262155, 65541, 2, 262154, 65542, 2, 262155, 65543, 2, 262154, 65544, 2, 262155, 65545, 2, 262154, 65546, 2, 262155, 65547, 2, 262154, 65548, 2, 262155, 65549, 2, 262154, 65550, 2, 262155, 196601, 2, 327691, 196602, 2, 327691, 196603, 2, 327690, 196604, 2, 327691, 196605, 2, 327690, 196606, 2, 327691, 196607, 2, 327690, 131072, 2, 327691, 131073, 2, 327690, 131074, 2, 327691, 131075, 2, 327690, 131076, 2, 327691, 131077, 2, 327690, 131078, 2, 327691, 131079, 2, 327690, 131080, 2, 327691, 131081, 2, 327690, 131082, 2, 327691, 131083, 2, 327690, 131084, 2, 327691, 131085, 2, 327690, 131086, 2, 327691, 131087, 2, 327690, 262137, 2, 393226, 262138, 2, 393226, 262139, 2, 393226, 262140, 2, 393226, 262141, 2, 393226, 262142, 2, 393226, 262143, 2, 393226, 196608, 2, 393226, 196609, 2, 393226, 196610, 2, 393226, 196611, 2, 393226, 196612, 2, 393226, 196613, 2, 393226, 196614, 2, 393226, 196615, 2, 393226, 196616, 2, 393226, 196617, 2, 393226, 196618, 2, 393226, 196619, 2, 393226, 196620, 2, 393226, 196621, 2, 393226, 196622, 2, 393226, 196623, 2, 393226 )

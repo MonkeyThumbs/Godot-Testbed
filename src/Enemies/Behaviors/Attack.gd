@@ -16,12 +16,13 @@ func exit(tick: Tick) -> void:
 
 func tick(tick: Tick) -> int:
 	var state := OK
+	owner.velocity.x  = 0
 	if not owner.check_can_see_player():
 		owner.update_look_direction(-owner.get_look_direction())
 		state = FAILED
 	elif not owner.check_can_attack():
 		tick.blackboard.set("last_known_player_location", owner.get_player_position())
-		state = ERR_BUSY
+		state = FAILED
 	elif not is_done:
 		state = ERR_BUSY
 	
@@ -29,4 +30,5 @@ func tick(tick: Tick) -> int:
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	is_done = true
+	if anim_name == "attack":
+		is_done = true

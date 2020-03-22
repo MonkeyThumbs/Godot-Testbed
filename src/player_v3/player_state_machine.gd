@@ -9,6 +9,7 @@ func _ready():
 		"tumble": $Tumble,
 		"wall_slide": $Wall_Slide,
 		"ledge_hang": $Ledge_Hang,
+		"ledge_climb": $Ledge_Climb,
 		"stagger": $Stagger,
 		"attack": $Attack,
 		"cast": $Cast,

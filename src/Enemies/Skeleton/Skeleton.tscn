@@ -213,6 +213,7 @@ snap_point = Vector2( 0, 28 )
 run_speed = 120.0
 
 [node name="CollisionShape2D" parent="." index="0"]
+visible = false
 position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
@@ -231,10 +232,19 @@ visible = false
 [node name="WallSensor" parent="Sprite" index="2"]
 visible = false
 
+[node name="AttackRangeSensor" parent="Sprite" index="3"]
+visible = false
+
+[node name="LineOfSight" parent="Sprite" index="4"]
+visible = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DamageBox" index="0"]
 position = Vector2( 3, 4 )
 shape = SubResource( 2 )
 disabled = true
+
+[node name="Hitbox" parent="Sprite" index="6"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" index="0"]
 position = Vector2( 0, 4 )
@@ -242,6 +252,7 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="EdgeSensor" parent="Sprite" index="7"]
+visible = false
 position = Vector2( 24, 27 )
 distance = 3.0
 

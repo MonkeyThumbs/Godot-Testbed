@@ -36,9 +36,57 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 24, 29 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/DamageBox/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "die"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/DamageBox/CollisionShape2D2:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 2.3
@@ -55,6 +103,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 12, 13, 14, 15, 16, 17, 16, 15, 13, 12 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/DamageBox/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 0.4
@@ -69,6 +129,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 24, 29 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/DamageBox/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -85,6 +169,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 36, 41 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -113,6 +209,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/DamageBox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=9]
 loop = true
@@ -126,7 +234,31 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0, 11 ]
+"values": [ 0, 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/DamageBox/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="GDScript" id=12]
@@ -196,7 +328,7 @@ func enter(tick: Tick) -> void:
 	pass
 
 func open(tick: Tick) -> void:
-	owner.velocity.y -= 180
+	owner.velocity.y = -240
 	owner.change_animation(\"attack\")
 
 func close(tick: Tick) -> void:
@@ -213,7 +345,7 @@ func tick(tick: Tick) -> int:
 	elif not owner.check_can_attack():
 		tick.blackboard.set(\"last_known_player_location\", owner.get_player_position())
 		state = FAILED
-	elif not is_done:
+	elif not is_done or not owner.check_is_on_floor():
 		state = ERR_BUSY
 	
 	return state
@@ -227,6 +359,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 run_speed = 180.0
 
 [node name="CollisionShape2D" parent="." index="0"]
+visible = false
 position = Vector2( 1, 14 )
 shape = SubResource( 1 )
 
@@ -236,19 +369,45 @@ vframes = 4
 hframes = 12
 frame = 24
 
+[node name="FloorSensor" parent="Sprite" index="1"]
+visible = false
+position = Vector2( 0, 24 )
+
+[node name="WallSensor" parent="Sprite" index="2"]
+visible = false
+length = 72.0
+
 [node name="AttackRangeSensor" parent="Sprite" index="3"]
+visible = false
 position = Vector2( 17, 3 )
 MAX_RANGE = 70.0
 MIN_RANGE = 1.0
+
+[node name="LineOfSight" parent="Sprite" index="4"]
+visible = false
+
+[node name="CollisionPolygon2D" parent="Sprite/LineOfSight" index="0"]
+position = Vector2( -36, 2 )
+polygon = PoolVector2Array( 21, -7, 1344, -408, 1344, 384, 21, 6 )
+
+[node name="DamageBox" parent="Sprite" index="5"]
+visible = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/DamageBox" index="0"]
 position = Vector2( 1, 13 )
 shape = SubResource( 2 )
 disabled = true
 
+[node name="Hitbox" parent="Sprite" index="6"]
+visible = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" index="0"]
 position = Vector2( 1, 13 )
 shape = SubResource( 3 )
+
+[node name="EdgeSensor" parent="Sprite" index="7"]
+visible = false
+position = Vector2( 32, 24 )
 
 [node name="AnimationPlayer" parent="." index="3"]
 autoplay = "idle"
@@ -327,6 +486,7 @@ script = SubResource( 11 )
 script = ExtResource( 7 )
 
 [node name="VisibilityNotifier2D" parent="." index="8"]
+visible = false
 position = Vector2( 1, 14 )
 rect = Rect2( -14, -10, 28, 20 )
 [connection signal="animation_finished" from="AnimationPlayer" to="BehaviorTree/BehaviorSequence/Attack/Attack" method="_on_AnimationPlayer_animation_finished"]

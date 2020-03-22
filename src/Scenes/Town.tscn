@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://src/Effects/Transistion/FadeIn.res" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/Gothicvania_Town_Background.png" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://src/player_v3/PlayerV3.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/images/Gothicvania_Town.png" type="Texture" id=10]
 [ext_resource path="res://src/Actors/0.1.0/SomeLady.res" type="PackedScene" id=11]
-[ext_resource path="res://src/Actors/0.1.0/BeardyMan.res" type="PackedScene" id=12]
 [ext_resource path="res://assets/images/Gothicvania_Town_n.png" type="Texture" id=13]
 [ext_resource path="res://src/Objects/Exit.res" type="PackedScene" id=14]
 [ext_resource path="res://assets/music/Huntress.ogg" type="AudioStream" id=15]
@@ -126,6 +125,10 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 5/autotile/z_index_map = [  ]
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
 5/shapes = [  ]
 5/z_index = 0
 6/name = "Gothicvania_Town.png 6"
@@ -144,6 +147,11 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 6/autotile/z_index_map = [  ]
 6/occluder_offset = Vector2( 0, 0 )
 6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape = SubResource( 5 )
+6/shape_one_way = false
+6/shape_one_way_margin = 1.0
 6/shapes = [ {
 "autotile_coord": Vector2( 9, 0 ),
 "one_way": false,
@@ -180,6 +188,11 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 7/autotile/z_index_map = [  ]
 7/occluder_offset = Vector2( 0, 0 )
 7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape = SubResource( 8 )
+7/shape_one_way = false
+7/shape_one_way_margin = 1.0
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 1 ),
 "one_way": false,
@@ -258,6 +271,11 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 8/autotile/z_index_map = [  ]
 8/occluder_offset = Vector2( 0, 0 )
 8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape = SubResource( 18 )
+8/shape_one_way = false
+8/shape_one_way_margin = 1.0
 8/shapes = [ {
 "autotile_coord": Vector2( 3, 3 ),
 "one_way": false,
@@ -342,6 +360,11 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 9/autotile/z_index_map = [  ]
 9/occluder_offset = Vector2( 0, 0 )
 9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape = SubResource( 29 )
+9/shape_one_way = false
+9/shape_one_way_margin = 1.0
 9/shapes = [ {
 "autotile_coord": Vector2( 0, 3 ),
 "one_way": false,
@@ -359,6 +382,11 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 11/tile_mode = 0
 11/occluder_offset = Vector2( 0, 0 )
 11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape = SubResource( 1 )
+11/shape_one_way = false
+11/shape_one_way_margin = 1.0
 11/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -376,6 +404,10 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 12/tile_mode = 0
 12/occluder_offset = Vector2( 0, 0 )
 12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
 12/shapes = [  ]
 12/z_index = 2
 13/name = "Gothicvania_Town.png 13"
@@ -387,6 +419,10 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 13/tile_mode = 0
 13/occluder_offset = Vector2( 0, 0 )
 13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
 13/shapes = [  ]
 13/z_index = 10
 14/name = "Gothicvania_Town.png 14"
@@ -398,6 +434,10 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 14/tile_mode = 0
 14/occluder_offset = Vector2( 0, 0 )
 14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
 14/shapes = [  ]
 14/z_index = 1
 15/name = "Gothicvania_Town.png 15"
@@ -409,6 +449,10 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 15/tile_mode = 0
 15/occluder_offset = Vector2( 0, 0 )
 15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
 15/shapes = [  ]
 15/z_index = 1
 16/name = "Gothicvania_Town.png 16"
@@ -420,6 +464,11 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 16/tile_mode = 0
 16/occluder_offset = Vector2( 0, 0 )
 16/navigation_offset = Vector2( 0, 0 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape = SubResource( 2 )
+16/shape_one_way = false
+16/shape_one_way_margin = 1.0
 16/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -437,6 +486,10 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 18/tile_mode = 0
 18/occluder_offset = Vector2( 0, 0 )
 18/navigation_offset = Vector2( 0, 0 )
+18/shape_offset = Vector2( 0, 0 )
+18/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+18/shape_one_way = false
+18/shape_one_way_margin = 0.0
 18/shapes = [  ]
 18/z_index = 0
 19/name = "Gothicvania_Town.png 19"
@@ -448,6 +501,10 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 19/tile_mode = 0
 19/occluder_offset = Vector2( 0, 0 )
 19/navigation_offset = Vector2( 0, 0 )
+19/shape_offset = Vector2( 0, 0 )
+19/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+19/shape_one_way = false
+19/shape_one_way_margin = 0.0
 19/shapes = [  ]
 19/z_index = 0
 20/name = "Gothicvania_Town.png 20"
@@ -459,6 +516,10 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 20/tile_mode = 0
 20/occluder_offset = Vector2( 0, 0 )
 20/navigation_offset = Vector2( 0, 0 )
+20/shape_offset = Vector2( 0, 0 )
+20/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+20/shape_one_way = false
+20/shape_one_way_margin = 0.0
 20/shapes = [  ]
 20/z_index = 0
 21/name = "Gothicvania_Town.png 21"
@@ -470,6 +531,10 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 21/tile_mode = 0
 21/occluder_offset = Vector2( 0, 0 )
 21/navigation_offset = Vector2( 0, 0 )
+21/shape_offset = Vector2( 0, 0 )
+21/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+21/shape_one_way = false
+21/shape_one_way_margin = 0.0
 21/shapes = [  ]
 21/z_index = 0
 22/name = "Gothicvania_Town.png 22"
@@ -481,6 +546,10 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 22/tile_mode = 0
 22/occluder_offset = Vector2( 0, 0 )
 22/navigation_offset = Vector2( 0, 0 )
+22/shape_offset = Vector2( 0, 0 )
+22/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+22/shape_one_way = false
+22/shape_one_way_margin = 0.0
 22/shapes = [  ]
 22/z_index = 0
 23/name = "Gothicvania_Town.png 23"
@@ -492,6 +561,11 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 23/tile_mode = 0
 23/occluder_offset = Vector2( 0, 0 )
 23/navigation_offset = Vector2( 0, 0 )
+23/shape_offset = Vector2( 0, 0 )
+23/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+23/shape = SubResource( 3 )
+23/shape_one_way = false
+23/shape_one_way_margin = 1.0
 23/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -509,6 +583,11 @@ points = PoolVector2Array( 24, 24, 6.10352e-05, 24, 6.10352e-05, 18, 24, 1.52588
 24/tile_mode = 0
 24/occluder_offset = Vector2( 0, 0 )
 24/navigation_offset = Vector2( 0, 0 )
+24/shape_offset = Vector2( 0, 0 )
+24/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+24/shape = SubResource( 4 )
+24/shape_one_way = false
+24/shape_one_way_margin = 1.0
 24/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -632,14 +711,8 @@ drag_margin_left = 0.1
 drag_margin_top = 0.1
 drag_margin_right = 0.05
 
-[node name="BeardyMan" parent="." instance=ExtResource( 12 )]
-position = Vector2( 793, 378 )
-
 [node name="SomeLady" parent="." instance=ExtResource( 11 )]
 position = Vector2( 245, 378 )
-
-[node name="SomeLady2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 545, 378 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 128
@@ -712,10 +785,10 @@ script = SubResource( 31 )
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
 volume_db = -20.0
-[connection signal="daybreak" from="." to="." method="_on_daybreak"]
 [connection signal="daybreak" from="." to="Lighting" method="_on_daybreak"]
-[connection signal="nightfall" from="." to="." method="_on_nightfall"]
+[connection signal="daybreak" from="." to="." method="_on_daybreak"]
 [connection signal="nightfall" from="." to="Lighting" method="_on_nightfall"]
+[connection signal="nightfall" from="." to="." method="_on_nightfall"]
 [connection signal="timeout" from="DaypartTimer" to="." method="_on_DaypartTimer_timeout"]
 [connection signal="health_changed" from="PlayerV3" to="GUI/HealthBar" method="_on_health_changed"]
 [connection signal="health_changed" from="PlayerV3" to="GUI/HealthBar" method="_on_PlayerV3_health_changed"]

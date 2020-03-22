@@ -27,7 +27,7 @@ export(SPELLS) var current_spell = SPELLS.FIREBOLT
 
 
 var look_direction : Vector2 = Vector2(1, 0) setget set_look_direction, get_look_direction
-var velocity = Vector2(0, 0)
+var velocity = Vector2(0, 0) setget set_velocity, get_velocity
 var local_gravity : Vector2 = Vector2.DOWN setget set_local_gravity, get_local_gravity
 var is_jumping : bool = false
 
@@ -45,7 +45,7 @@ func _physics_process(delta):
 func take_damage(attacker : Node, amount : int, effect = null):
 	if self.is_a_parent_of(attacker):
 		return
-	$StateMachine/Stagger.knockback_direction = (attacker.global_position - global_position).normalized()
+	$StateMachine/Stagger.knockback_direction = -(attacker.global_position - global_position).normalized()
 	$StateMachine._change_state("stagger")
 	$Health.take_damage(amount, effect)
 
@@ -56,7 +56,15 @@ func set_dead(value):
 	$StateMachine.set_active(false)
 	$Sprite/Hitbox/CollisionShape2D.set_disabled(true)
 	emit_signal("health_depleted")
-#	$CollisionShape2D.disabled = value
+
+
+
+func set_velocity(vel : Vector2):
+	velocity = vel
+
+
+func get_velocity() -> Vector2:
+	return velocity
 
 
 func set_look_direction(value):

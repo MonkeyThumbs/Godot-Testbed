@@ -11,7 +11,8 @@ export(float) var gravity_rotation = 0.0
 export(float, EXP, 0, 2400, 24) var move_speed = Globals.UNIT_SIZE * 20
 export(Globals.facings) var facing = Globals.facings.right
 
-var is_moving = false setget set_is_moving, get_is_moving
+var is_moving := false setget set_is_moving, get_is_moving
+var is_interacting := false
 
 onready var body = $Body
 onready var playback = $AnimationTree.get("parameters/playback")
@@ -68,3 +69,14 @@ func set_is_moving(moving : bool):
 func get_is_moving() -> bool:
 	return is_moving
 
+
+func interact(value : bool = true) -> void:
+	$Interaction.activate(value)
+
+
+func _on_Interaction_interaction_start() -> void:
+	is_interacting = true
+
+
+func _on_Interaction_interaction_stop() -> void:
+	is_interacting = false
