@@ -30,6 +30,7 @@ func _physics_process(delta):
 		apply_gravity(delta)
 	apply_knockback()
 	update_knockback_force(delta)
+	clamp_velocity()
 	
 	if !is_jumping:
 		velocity = move_and_slide_with_snap(velocity, snap_point, Globals.UP, true, slope_force, deg2rad(90), true)
@@ -88,6 +89,11 @@ func apply_gravity(delta : float) -> void:
 
 func apply_knockback() -> void:
 	velocity += get_knockback_force()
+
+
+func clamp_velocity() -> void:
+	velocity.x = clamp(velocity.x, -Globals.MAX_VELOCITY.x, Globals.MAX_VELOCITY.x)
+	velocity.y = clamp(velocity.y, -Globals.MAX_VELOCITY.y, Globals.MAX_VELOCITY.y)
 
 
 func update_knockback_force(delta : float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/skeleton.png" type="Texture" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://src/Enemies/Behaviors/Fall.gd" type="Script" id=10]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/mem_selector.gd" type="Script" id=11]
 [ext_resource path="res://assets/images/skeleton_n.png" type="Texture" id=12]
+[ext_resource path="res://assets/sfx/skeleton_damage.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/sfx/skeleton_rise.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/sfx/skeleton_die.ogg" type="AudioStream" id=15]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.0
@@ -75,6 +78,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("SoundFX/Die:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 0.75
@@ -127,6 +142,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ true, false ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("SoundFX/Rise:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "stagger"
@@ -154,6 +181,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SoundFX/Damage:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -222,38 +261,22 @@ texture = ExtResource( 2 )
 normal_map = ExtResource( 12 )
 vframes = 2
 hframes = 8
+frame = 5
 
 [node name="BloodSplatter" parent="Sprite" index="0"]
 self_modulate = Color( 0, 1, 0, 1 )
 
-[node name="FloorSensor" parent="Sprite" index="1"]
-visible = false
-
-[node name="WallSensor" parent="Sprite" index="2"]
-visible = false
-
-[node name="AttackRangeSensor" parent="Sprite" index="3"]
-visible = false
-
-[node name="LineOfSight" parent="Sprite" index="4"]
-visible = false
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DamageBox" index="0"]
 position = Vector2( 3, 4 )
 shape = SubResource( 2 )
-disabled = true
-
-[node name="Hitbox" parent="Sprite" index="6"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" index="0"]
 position = Vector2( 0, 4 )
 shape = SubResource( 3 )
-disabled = true
 
 [node name="EdgeSensor" parent="Sprite" index="7"]
-visible = false
-position = Vector2( 24, 27 )
+visible = true
+position = Vector2( 48, 27 )
 distance = 3.0
 
 [node name="AnimationPlayer" parent="." index="3"]
@@ -298,3 +321,16 @@ wait_time = 3.0
 [node name="VisibilityNotifier2D" parent="." index="8"]
 position = Vector2( 0, 4 )
 rect = Rect2( -7, -24, 17, 48 )
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="SoundFX" index="0"]
+stream = ExtResource( 13 )
+volume_db = 7.0
+pitch_scale = 1.7
+
+[node name="Die" type="AudioStreamPlayer2D" parent="SoundFX" index="1"]
+stream = ExtResource( 15 )
+volume_db = -7.0
+
+[node name="Rise" type="AudioStreamPlayer2D" parent="SoundFX" index="2"]
+stream = ExtResource( 14 )
+volume_db = -15.0

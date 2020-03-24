@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://src/player_v3/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://src/player_v3/states/combat/stagger.gd" type="Script" id=2]
@@ -26,12 +26,13 @@
 [ext_resource path="res://assets/sfx/sheath.wav" type="AudioStream" id=24]
 [ext_resource path="res://assets/sfx/unsheath.wav" type="AudioStream" id=25]
 [ext_resource path="res://src/player_v3/states/motion/in_air/ledge_climb.gd" type="Script" id=26]
+[ext_resource path="res://assets/sfx/Hit damage 1.wav" type="AudioStream" id=27]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 24.0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7, 14 )
+extents = Vector2( 7, 20 )
 
 [sub_resource type="Animation" id=3]
 length = 0.3
@@ -764,7 +765,7 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.0488673, 0.0975551, 0.15 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
+"update": 1,
 "values": [ Color( 1, 1, 1, 0.0980392 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.0980392 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
@@ -826,6 +827,18 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 5 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("SoundFX/Damage:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -989,7 +1002,7 @@ texture = ExtResource( 9 )
 normal_map = ExtResource( 10 )
 vframes = 15
 hframes = 10
-frame = 44
+frame = 82
 
 [node name="FloorDetector" parent="Sprite" instance=ExtResource( 13 )]
 visible = false
@@ -1005,7 +1018,7 @@ collision_layer = 0
 collision_mask = 131072
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
-position = Vector2( 0, 12 )
+position = Vector2( 0, 6 )
 shape = SubResource( 2 )
 
 [node name="DamageBox" parent="Sprite" instance=ExtResource( 20 )]
@@ -1107,6 +1120,9 @@ volume_db = -10.0
 [node name="Unsheath" type="AudioStreamPlayer" parent="SoundFX"]
 stream = ExtResource( 25 )
 volume_db = -10.0
+
+[node name="Damage" type="AudioStreamPlayer" parent="SoundFX"]
+stream = ExtResource( 27 )
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="health_changed" from="Health" to="." method="_on_Health_health_changed"]
 [connection signal="health_depleted" from="Health" to="StateMachine" method="_on_Health_health_depleted"]

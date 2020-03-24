@@ -1,16 +1,20 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/Enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/hell-hound.png" type="Texture" id=2]
 [ext_resource path="res://src/Enemies/Behaviors/Wait.gd" type="Script" id=3]
+[ext_resource path="res://addons/godot-behavior-tree-plugin/mem_sequence.gd" type="Script" id=4]
 [ext_resource path="res://src/Enemies/Behaviors/PlayerInSite.gd" type="Script" id=5]
 [ext_resource path="res://src/Enemies/Behaviors/PlayerInAttackRange.gd" type="Script" id=6]
 [ext_resource path="res://src/Enemies/Behaviors/Turn.gd" type="Script" id=7]
+[ext_resource path="res://assets/sfx/hound_grunt.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Enemies/Behaviors/CanMove.gd" type="Script" id=9]
+[ext_resource path="res://assets/sfx/Retro Wolf B 02.wav" type="AudioStream" id=10]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/failer.gd" type="Script" id=11]
 [ext_resource path="res://src/Enemies/Behaviors/CheckIdleTimer.gd" type="Script" id=12]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/mem_selector.gd" type="Script" id=13]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/sequence.gd" type="Script" id=14]
+[ext_resource path="res://assets/sfx/Hit damage 1.wav" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14, 10 )
@@ -21,7 +25,7 @@ extents = Vector2( 16, 11 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 11 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=4]
 resource_name = "attack"
 length = 0.4
 tracks/0/type = "value"
@@ -60,9 +64,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("SoundFX/Attack:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=4]
-resource_name = "die"
+[sub_resource type="Animation" id=5]
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/DamageBox/CollisionShape2D2:disabled")
 tracks/0/interp = 1
@@ -76,7 +92,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:visible")
+tracks/1/path = NodePath("Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -85,10 +101,46 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
+"values": [ 29 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SoundFX/Die:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 2.3
 loop = true
 tracks/0/type = "value"
@@ -116,7 +168,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -155,7 +207,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -183,7 +235,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -221,8 +273,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("SoundFX/Damage:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -261,7 +325,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="GDScript" id=12]
+[sub_resource type="GDScript" id=11]
 script/source = "extends \"res://addons/godot-behavior-tree-plugin/action.gd\"
 
 func enter(_tick: Tick) -> void:
@@ -295,7 +359,7 @@ func tick(_tick: Tick) -> int:
 	return OK if owner.check_can_see_player() else ERR_BUSY
 "
 
-[sub_resource type="GDScript" id=13]
+[sub_resource type="GDScript" id=12]
 script/source = "extends \"res://addons/godot-behavior-tree-plugin/action.gd\"
 
 func tick(tick: Tick) -> int:
@@ -319,7 +383,7 @@ func tick(tick: Tick) -> int:
 	return state
 "
 
-[sub_resource type="GDScript" id=11]
+[sub_resource type="GDScript" id=13]
 script/source = "extends \"res://addons/godot-behavior-tree-plugin/action.gd\"
 
 onready var is_done : bool = false
@@ -339,20 +403,21 @@ func exit(tick: Tick) -> void:
 
 func tick(tick: Tick) -> int:
 	var state := OK
-	if not owner.check_can_see_player():
-		owner.update_look_direction(-owner.get_look_direction())
-		state = FAILED
-	elif not owner.check_can_attack():
-		tick.blackboard.set(\"last_known_player_location\", owner.get_player_position())
-		state = FAILED
-	elif not is_done or not owner.check_is_on_floor():
+#	if not owner.check_can_see_player():
+#		owner.update_look_direction(-owner.get_look_direction())
+#		state = FAILED
+#	if not owner.check_can_attack():
+#		tick.blackboard.set(\"last_known_player_location\", owner.get_player_position())
+#		state = FAILED
+	if not is_done or not owner.check_is_on_floor():
 		state = ERR_BUSY
 	
 	return state
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	is_done = true
+	if anim_name == \"attack\":
+		is_done = true
 "
 
 [node name="Hellhound" instance=ExtResource( 1 )]
@@ -367,57 +432,43 @@ shape = SubResource( 1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 12
-frame = 24
+frame = 29
 
 [node name="FloorSensor" parent="Sprite" index="1"]
-visible = false
 position = Vector2( 0, 24 )
 
 [node name="WallSensor" parent="Sprite" index="2"]
-visible = false
 length = 72.0
 
 [node name="AttackRangeSensor" parent="Sprite" index="3"]
-visible = false
 position = Vector2( 17, 3 )
 MAX_RANGE = 70.0
 MIN_RANGE = 1.0
-
-[node name="LineOfSight" parent="Sprite" index="4"]
-visible = false
 
 [node name="CollisionPolygon2D" parent="Sprite/LineOfSight" index="0"]
 position = Vector2( -36, 2 )
 polygon = PoolVector2Array( 21, -7, 1344, -408, 1344, 384, 21, 6 )
 
-[node name="DamageBox" parent="Sprite" index="5"]
-visible = false
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/DamageBox" index="0"]
 position = Vector2( 1, 13 )
 shape = SubResource( 2 )
-disabled = true
-
-[node name="Hitbox" parent="Sprite" index="6"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" index="0"]
 position = Vector2( 1, 13 )
 shape = SubResource( 3 )
 
 [node name="EdgeSensor" parent="Sprite" index="7"]
-visible = false
 position = Vector2( 32, 24 )
 
 [node name="AnimationPlayer" parent="." index="3"]
 autoplay = "idle"
-anims/attack = SubResource( 10 )
-anims/die = SubResource( 4 )
-anims/idle = SubResource( 5 )
-anims/jump = SubResource( 6 )
-anims/run = SubResource( 7 )
-anims/stagger = SubResource( 8 )
-anims/walk = SubResource( 9 )
+anims/attack = SubResource( 4 )
+anims/die = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/jump = SubResource( 7 )
+anims/run = SubResource( 8 )
+anims/stagger = SubResource( 9 )
+anims/walk = SubResource( 10 )
 
 [node name="BehaviorSequence" type="Node" parent="BehaviorTree" index="0"]
 script = ExtResource( 14 )
@@ -453,7 +504,7 @@ script = ExtResource( 9 )
 script = ExtResource( 7 )
 
 [node name="Patrol" type="Node" parent="BehaviorTree/BehaviorSequence/BehaviorSequence/LocatePlayer" index="2"]
-script = SubResource( 12 )
+script = SubResource( 11 )
 
 [node name="MoveToPlayer" type="Node" parent="BehaviorTree/BehaviorSequence" index="1"]
 script = ExtResource( 13 )
@@ -474,13 +525,13 @@ script = ExtResource( 9 )
 script = ExtResource( 7 )
 
 [node name="Move" type="Node" parent="BehaviorTree/BehaviorSequence/MoveToPlayer" index="2"]
-script = SubResource( 13 )
+script = SubResource( 12 )
 
 [node name="Attack" type="Node" parent="BehaviorTree/BehaviorSequence" index="2"]
-script = ExtResource( 13 )
+script = ExtResource( 4 )
 
 [node name="Attack" type="Node" parent="BehaviorTree/BehaviorSequence/Attack" index="0"]
-script = SubResource( 11 )
+script = SubResource( 13 )
 
 [node name="Turn" type="Node" parent="BehaviorTree/BehaviorSequence/Attack" index="1"]
 script = ExtResource( 7 )
@@ -489,4 +540,19 @@ script = ExtResource( 7 )
 visible = false
 position = Vector2( 1, 14 )
 rect = Rect2( -14, -10, 28, 20 )
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="SoundFX" index="0"]
+stream = ExtResource( 15 )
+volume_db = 5.0
+pitch_scale = 0.7
+
+[node name="Die" type="AudioStreamPlayer2D" parent="SoundFX" index="1"]
+stream = ExtResource( 10 )
+volume_db = -10.0
+pitch_scale = 2.0
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="SoundFX" index="2"]
+stream = ExtResource( 8 )
+volume_db = 10.0
+pitch_scale = 0.8
 [connection signal="animation_finished" from="AnimationPlayer" to="BehaviorTree/BehaviorSequence/Attack/Attack" method="_on_AnimationPlayer_animation_finished"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/skeleton_damage.ogg-7d7c87e6e36d8435193a758890cf2cfb.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/skeleton_damage.ogg"
+dest_files=[ "res://.import/skeleton_damage.ogg-7d7c87e6e36d8435193a758890cf2cfb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

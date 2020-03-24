@@ -8,7 +8,7 @@ func enter() -> void:
 
 func exit() -> void:
 	owner.velocity.y = 0
-	owner.set_position(owner.get_position() + Vector2(6, 0) * owner.get_look_direction())
+	owner.set_position(owner.get_position() + Vector2(12, 0) * owner.get_look_direction())
 	owner.set_local_gravity(Vector2.DOWN)
 
 

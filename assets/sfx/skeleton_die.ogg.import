@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/skeleton_die.ogg-1619e86bc60bb2b752f2677262a9b477.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/skeleton_die.ogg"
+dest_files=[ "res://.import/skeleton_die.ogg-1619e86bc60bb2b752f2677262a9b477.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

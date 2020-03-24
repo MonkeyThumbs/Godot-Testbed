@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/skeleton_rise.ogg-42cc877d55a8ce73ea541352ff72b100.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/skeleton_rise.ogg"
+dest_files=[ "res://.import/skeleton_rise.ogg-42cc877d55a8ce73ea541352ff72b100.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

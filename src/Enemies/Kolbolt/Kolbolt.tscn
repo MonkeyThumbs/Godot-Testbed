@@ -252,12 +252,13 @@ shape = SubResource( 1 )
 max_health = 6
 
 [node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 1 )
 normal_map = ExtResource( 8 )
 offset = Vector2( 7, 0 )
 vframes = 5
 hframes = 12
-frame = 38
+frame = 36
 
 [node name="BloodSplatter" parent="Sprite" instance=ExtResource( 24 )]
 position = Vector2( 3, 2 )

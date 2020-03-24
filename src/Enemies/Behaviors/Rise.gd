@@ -26,6 +26,6 @@ func tick(tick: Tick) -> int:
 	owner.velocity.x = 0
 	if  owner.get_node("AnimationPlayer").current_animation == "rise":
 		if  owner.get_node("AnimationPlayer").is_playing():
-			return OK
+			return ERR_BUSY
 	
-	return ERR_BUSY
+	return OK
