@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/images/Gothicvania_Cemetery_Background.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/Gothicvania_Cemetery_Graveyard.png" type="Texture" id=5]
 [ext_resource path="res://src/GUI/MainMenu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Scenes/FPSDisplay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Scenes/GUI/FPSDisplay.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/images/Gothicvania_Cemetery_Mountains.png" type="Texture" id=9]
 [ext_resource path="res://src/Objects/Exit.res" type="PackedScene" id=10]
 [ext_resource path="res://src/Effects/Transistion/FadeIn.res" type="PackedScene" id=11]
@@ -599,9 +599,9 @@ color = Color( 0.352941, 0.352941, 0.352941, 1 )
 [node name="Light2D" type="Light2D" parent="Lighing"]
 position = Vector2( 1836, 456 )
 texture = ExtResource( 13 )
-texture_scale = 0.929017
+texture_scale = 0.856632
 color = Color( 1, 0.966667, 0, 1 )
-energy = 0.918366
+energy = 0.862486
 script = ExtResource( 14 )
 MIN_ENERGY = 0.6
 MAX_ENERGY = 1.2
@@ -613,9 +613,9 @@ persistence = 0.8
 [node name="Light2D2" type="Light2D" parent="Lighing"]
 position = Vector2( 0, 480 )
 texture = ExtResource( 13 )
-texture_scale = 0.874919
+texture_scale = 0.897819
 color = Color( 1, 0.966667, 0, 1 )
-energy = 0.85469
+energy = 0.886798
 script = ExtResource( 14 )
 __meta__ = {
 "_editor_description_": ""
@@ -630,8 +630,8 @@ persistence = 0.8
 [node name="Light2D3" type="Light2D" parent="Lighing"]
 position = Vector2( 1030, 449 )
 texture = ExtResource( 13 )
-texture_scale = 0.603345
-energy = 0.823765
+texture_scale = 0.525962
+energy = 0.772937
 shadow_enabled = true
 script = ExtResource( 14 )
 __meta__ = {

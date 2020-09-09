@@ -1,13 +1,13 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://assets/images/title_screen.png" type="Texture" id=1]
-[ext_resource path="res://src/GUI/MainMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/music/menu.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/images/red_bubble.png" type="Texture" id=4]
-[ext_resource path="res://src/Effects/Lights/Pulse.gd" type="Script" id=5]
+[ext_resource path="res://src/Effects/Lights/Pulse.gd" type="Script" id=1]
+[ext_resource path="res://src/Scenes/Scene.gd" type="Script" id=2]
+[ext_resource path="res://src/Effects/Transistion/FadeIn.res" type="PackedScene" id=3]
+[ext_resource path="res://src/GUI/MainMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/music/menu.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/images/light.png" type="Texture" id=6]
-[ext_resource path="res://src/Scenes/Scene.gd" type="Script" id=7]
-[ext_resource path="res://src/Effects/Transistion/FadeIn.res" type="PackedScene" id=8]
+[ext_resource path="res://assets/images/title_screen.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/red_bubble.png" type="Texture" id=8]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.366883, 0.811688, 1 )
@@ -65,10 +65,10 @@ color_ramp = SubResource( 2 )
 
 [node name="TitleScreen" type="Node2D"]
 pause_mode = 2
-script = ExtResource( 7 )
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource( 7 )
 centered = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
@@ -81,26 +81,26 @@ lifetime = 5.0
 preprocess = 30.0
 visibility_rect = Rect2( -640, -100, 1280, 200 )
 process_material = SubResource( 11 )
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 
 [node name="Light2D" type="Light2D" parent="GUI"]
 position = Vector2( 641, 742 )
 texture = ExtResource( 6 )
-energy = -1.69784
-script = ExtResource( 5 )
+energy = 0.309479
+script = ExtResource( 1 )
 MIN_ENERGY = 0.2
 MAX_ENERGY = 0.5
 MIN_SCALE = 1.0
 duration_sec = 3.0
 
-[node name="MainMenu" parent="GUI" instance=ExtResource( 2 )]
+[node name="MainMenu" parent="GUI" instance=ExtResource( 4 )]
 margin_top = 120.0
 margin_bottom = -120.0
 
-[node name="FadeIn" parent="." instance=ExtResource( 8 )]
+[node name="FadeIn" parent="." instance=ExtResource( 3 )]
 duration = 6.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 5 )
 volume_db = -10.0
 autoplay = true

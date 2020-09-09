@@ -1,9 +1,11 @@
 tool
-class_name Stage
 extends Scene
+class_name Stage
+
 
 signal daybreak
 signal nightfall
+
 
 export(float, 1, 4800, 1) var DAY_LENGTH_SEC : float = 360.0
 export(float, 0, 1, 0.01) var START_TIME_PERCENT : float = 0
@@ -24,17 +26,16 @@ var is_daytime : bool = true
 
 var ambient_light_level : float = 1 setget set_ambient_light_level, get_ambient_light_level
 
-
-onready var camera = $Camera2D
-onready var health_bar = $GUI/HealthBar
-onready var game_over_screen = $GUI/GameOverScreen
-onready var music = $Music
-onready var background = $ParallaxLayers
+onready var camera := $Camera2D
+onready var health_bar := $GUI/HealthBar
+onready var game_over_screen := $GUI/GameOverScreen
+onready var music := $Music
+onready var music_tween := $MusicTween
+onready var background := $ParallaxLayers
 onready var ambient_light := $AmbientLight
-onready var day_timer = $DaypartTimer
-onready var entrances = $Entrances
-onready var default_entrance = $Entrances/Default
-
+onready var day_timer := $DaypartTimer
+onready var entrances := $Entrances
+onready var default_entrance := $Entrances/Default
 
 
 func _ready():
@@ -59,6 +60,7 @@ func _exit_tree():
 		player.disconnect("health_changed", health_bar, "_on_health_changed")
 		player.disconnect("max_health_changed", health_bar, "_on_max_health_changed")
 		player.disconnect("health_depleted", game_over_screen, "_on_health_depleted")
+		player.disconnect("health_depleted", self, "_on_health_depleted")
 		player.disconnect("mana_changed", health_bar, "_on_mana_changed")
 		player.disconnect("max_mana_changed", health_bar, "_on_max_mana_changed")
 		player.disconnect("mana_depleted", health_bar, "_on_mana_depleted")
@@ -130,6 +132,7 @@ func _init_player() -> void:
 	player.connect("health_changed", health_bar, "_on_health_changed")
 	player.connect("max_health_changed", health_bar, "_on_max_health_changed")
 	player.connect("health_depleted", game_over_screen, "_on_health_depleted")
+	player.connect("health_depleted", self, "_on_health_depleted")
 	player.connect("mana_changed", health_bar, "_on_mana_changed")
 	player.connect("max_mana_changed", health_bar, "_on_max_mana_changed")
 	player.connect("mana_depleted", health_bar, "_on_mana_depleted")
@@ -263,6 +266,11 @@ func modulate_parallax_layer(layer, amount : float):
 		layer.modulate = layer.modulate.lightened(amount)
 	else:
 		layer.modulate = layer.modulate.darkened(-amount)
+
+
+func _on_health_depleted():
+	music_tween.interpolate_property(music, "volume_db", music.volume_db, -100, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	music_tween.start()
 
 
 func _on_DebugMenu_command_entered(command, text):

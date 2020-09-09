@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/music/ambiancesuspens.ogg" type="AudioStream" id=3]
 [ext_resource path="res://src/Effects/Lights/StreetLampLight.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Effects/Lights/Flicker.gd" type="Script" id=5]
-[ext_resource path="res://src/Scenes/Stages/Parallax/TownNight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Scenes/Stages/TownNight.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Enemies/Wizard/Wizard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Enemies/Kolbolt/Kolbolt.tscn" type="PackedScene" id=9]
 
@@ -46,8 +46,8 @@ tile_data = PoolIntArray( -720818, 16, 0, -458706, 17, 0, -458682, 15, 0, -13100
 
 [node name="StreetLampLight" parent="Lighting" index="0" instance=ExtResource( 4 )]
 position = Vector2( -35, 39 )
-texture_scale = 1.11658
-energy = 0.983151
+texture_scale = 1.08969
+energy = 0.99485
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -57,8 +57,8 @@ persistence = 7.0
 
 [node name="StreetLampLight2" parent="Lighting" index="1" instance=ExtResource( 4 )]
 position = Vector2( 443, 40 )
-texture_scale = 1.26717
-energy = 1.02001
+texture_scale = 1.15021
+energy = 1.01488
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -68,8 +68,8 @@ persistence = 7.0
 
 [node name="StreetLampLight3" parent="Lighting" index="2" instance=ExtResource( 4 )]
 position = Vector2( 1644, -32 )
-texture_scale = 1.30659
-energy = 1.01049
+texture_scale = 1.40241
+energy = 1.02257
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05

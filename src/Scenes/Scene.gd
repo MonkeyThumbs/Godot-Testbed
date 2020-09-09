@@ -1,5 +1,5 @@
-class_name Scene
 extends Node2D
+class_name Scene
 
 onready var main_menu := $GUI/MainMenu
 
