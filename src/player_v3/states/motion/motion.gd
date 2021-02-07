@@ -2,11 +2,6 @@
 class_name Motion
 extends State
 
-func handle_input(event : InputEvent):
-	if event.is_action_pressed("simulate_damage"):
-		owner.take_damage(null, 5, Globals.STATUS_NONE)
-		emit_signal("finished", "stagger")
-
 
 func get_input_direction():
 	var input_direction = Vector2()

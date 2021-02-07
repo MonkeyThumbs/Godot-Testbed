@@ -18,16 +18,19 @@ func _unhandled_input(event : InputEvent):
 func _on_Button2_pressed():
 	$FadeOut.activate()
 	scene = "res://src/Scenes/Town.tscn"
+	get_tree().set_input_as_handled()
 
 
 func _on_Button3_pressed():
 	$FadeOut.activate()
 	scene = "res://src/Scenes/Stages/StarterTown.tscn"
+	get_tree().set_input_as_handled()
 
 
 func _on_Button4_pressed():
 	$FadeOut.activate()
 	scene = "res://src/Scenes/Stages/GothicCastle.tscn"
+	get_tree().set_input_as_handled()
 
 
 func _on_FadeOut_finished():

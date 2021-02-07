@@ -28,5 +28,3 @@ func _on_animation_finished(_anim_name):
 		var node = owner.get_parent()
 		node.add_child(spell_instance)
 		emit_signal("finished", "idle")
-
-	print(spell_instance.position)

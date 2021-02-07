@@ -49,8 +49,8 @@ func _ready():
 		orig_zoom = camera.zoom
 		orig_offset = camera.offset
 		
-		if !music.playing:
-			music.play()
+#		if !music.playing:
+#			music.play()
 
 
 func _exit_tree():

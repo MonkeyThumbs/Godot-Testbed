@@ -1,4 +1,4 @@
-extends "on_ground.gd"
+extends OnGround
 
 
 export(float) var MAX_WALK_SPEED = 10 * Globals.UNIT_SIZE

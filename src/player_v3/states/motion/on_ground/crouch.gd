@@ -10,6 +10,8 @@ func handle_input(event):
 	update_look_direction(input_direction)
 	if input_direction.y <= 0:
 		emit_signal("finished", "idle")
+	elif event.is_action_pressed("jump") && owner.check_is_on_floor():
+		emit_signal("finished", "jump")
 
 
 func update(delta):

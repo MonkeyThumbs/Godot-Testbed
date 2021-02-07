@@ -1,4 +1,4 @@
-extends "on_ground.gd"
+extends OnGround
 
 func enter():
 	owner.change_animation("idle")

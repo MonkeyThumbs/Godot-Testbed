@@ -1,4 +1,4 @@
-extends "../motion.gd"
+extends Motion
 
 func enter():
 	owner.change_animation("wall_slide")
@@ -10,10 +10,11 @@ func exit() -> void:
 	owner.set_local_gravity(Vector2.DOWN)
 
 
-# warning-ignore:unused_argument
 func handle_input(event : InputEvent) -> void:
 	if event.is_action_pressed("jump"):
-		pass
+		emit_signal("finished", "wall_jump")
+	elif owner.velocity.y >= -Globals.SAFETY_MARGIN:
+		emit_signal("finished", "fall")
 
 
 func update(delta : float) -> void:
@@ -21,6 +22,5 @@ func update(delta : float) -> void:
 	if input_direction != get_look_direction():
 		emit_signal("finished", "fall")
 		update_look_direction(input_direction)
-	
-	if owner.check_is_on_floor():
+	elif owner.check_is_on_floor():
 		emit_signal("finished", "idle")

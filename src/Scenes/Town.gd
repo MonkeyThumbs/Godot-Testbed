@@ -42,8 +42,8 @@ func _ready():
 	if Globals.entrance_position.length() > 0:
 		player.set_global_position(Globals.entrance_position)
 	
-	if !music.playing:
-		music.play()
+#	if !music.playing:
+#		music.play()
 
 
 func _unhandled_input(event):

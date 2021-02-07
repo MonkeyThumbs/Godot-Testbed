@@ -8,6 +8,7 @@ func _ready():
 		"jump": $Jump,
 		"tumble": $Tumble,
 		"wall_slide": $Wall_Slide,
+		"wall_jump": $Wall_Jump,
 		"ledge_hang": $Ledge_Hang,
 		"ledge_climb": $Ledge_Climb,
 		"stagger": $Stagger,
@@ -24,10 +25,18 @@ func _change_state(state_name):
 	if state_name == "fall":
 		if previous_state == null:
 			pass
-		elif current_state == $Jump:
-			$Fall.initialiaze($Jump.AIR_STEERING_POWER)
 		elif current_state == $Tumble:
 			$Fall.initialiaze($Tumble.AIR_STEERING_POWER)
+		else:
+			$Fall.initialiaze($Jump.AIR_STEERING_POWER)
+#		elif current_state == $Jump:
+#			$Fall.initialiaze($Jump.AIR_STEERING_POWER)
+#		elif current_state == $Wall_Slide:
+#			$Fall.initialiaze($Jump.AIR_STEERING_POWER)
+#		elif current_state == $Ledge_Hang:
+#			$Fall.initialiaze($Jump.AIR_STEERING_POWER)
+#		elif current_state == $Move:
+#			$Fall.initialiaze($Jump.AIR_STEERING_POWER)
 	._change_state(state_name)
 
 func _unhandled_input(event):

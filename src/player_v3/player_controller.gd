@@ -101,6 +101,30 @@ func check_is_on_ledge() -> bool:
 	return $Sprite/WallSensor.check_is_on_ledge()
 
 
+func get_floor_collider() -> Object:
+	return $Sprite/FloorDetector.get_collider()
+
+
+func get_wall_collider() -> Object:
+	return $Sprite/WallSensor.get_wall_collider()
+
+
+func get_ledge_collider() -> Object:
+	return $Sprite/WallSensor.get_ledge_collider()
+
+
+func get_wall_collision_point() -> Vector2:
+	return $Sprite/WallSensor.get_wall_collision_point()
+
+
+func get_ledge_collision_point() -> Vector2:
+	return $Sprite/WallSensor.get_ledge_collision_point()
+
+
+func get_ledge_sensor_position() -> Vector2:
+	return $Sprite/WallSensor.get_ledge_sensor_position()
+
+
 func play_sound(node_path : NodePath) -> bool:
 	var success := false
 	
