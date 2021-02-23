@@ -111,13 +111,21 @@ func _process(delta):
 			camera.offset.y += Globals.UNIT_SIZE * 2 * delta
 		
 		if Input.is_key_pressed(KEY_1):
-			player.current_spell = Spells.FIREBOLT
+			player.add_spell(Spells.FIREBOLT)
 		elif Input.is_key_pressed(KEY_2):
-			player.current_spell = Spells.LIGHTNING
+			player.add_spell(Spells.LIGHTNING)
 		elif Input.is_key_pressed(KEY_3):
-			player.current_spell = Spells.HEAL
+			player.add_spell(Spells.HEAL)
 		
-		if update_day_cycle:	_update_day_cycle(delta)
+		if Input.is_key_pressed(KEY_SHIFT) && Input.is_key_pressed(KEY_1):
+			player.remove_spell(Spells.FIREBOLT)
+		elif Input.is_key_pressed(KEY_SHIFT) && Input.is_key_pressed(KEY_2):
+			player.remove_spell(Spells.LIGHTNING)
+		elif Input.is_key_pressed(KEY_SHIFT) && Input.is_key_pressed(KEY_3):
+			player.remove_spell(Spells.HEAL)
+
+		if update_day_cycle:
+			_update_day_cycle(delta)
 
 
 func _init_player() -> void:

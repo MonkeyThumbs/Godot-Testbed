@@ -7,9 +7,11 @@ class_name State
 extends Node
 
 # warning-ignore:unused_signal
+signal entered()
 signal finished(next_state_name)
 
 func enter():
+	emit_signal("entered")
 	return
 
 func exit():

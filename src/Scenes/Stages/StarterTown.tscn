@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Scenes/Stages/Stage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Scenes/Stages/Tilesets/GothicvaniaTown.tres" type="TileSet" id=2]
@@ -7,7 +7,9 @@
 [ext_resource path="res://src/Effects/Lights/Flicker.gd" type="Script" id=5]
 [ext_resource path="res://src/Scenes/Stages/TownNight.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Enemies/Wizard/Wizard.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Effects/Lights/Pulse.gd" type="Script" id=8]
 [ext_resource path="res://src/Enemies/Kolbolt/Kolbolt.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/images/light.png" type="Texture" id=10]
 
 [node name="StarterTown" instance=ExtResource( 1 )]
 START_TIME_PERCENT = 0.53
@@ -31,6 +33,18 @@ position = Vector2( 550, 164 )
 
 [node name="TownNight" parent="ParallaxLayers" index="0" instance=ExtResource( 6 )]
 
+[node name="Light2D" type="Light2D" parent="ParallaxLayers/TownNight" index="3"]
+modulate = Color( 0.337255, 0.593569, 0.50251, 1 )
+position = Vector2( 2327.14, 363.048 )
+texture = ExtResource( 10 )
+color = Color( 0.196078, 1, 0, 1 )
+script = ExtResource( 8 )
+MIN_ENERGY = 0.6
+MAX_ENERGY = 2.0
+MIN_SCALE = 0.8
+MAX_SCALE = 5.0
+duration_sec = 8.0
+
 [node name="Tilemaps" parent="." index="7"]
 process_priority = -3
 
@@ -46,8 +60,8 @@ tile_data = PoolIntArray( -720818, 16, 0, -458706, 17, 0, -458682, 15, 0, -13100
 
 [node name="StreetLampLight" parent="Lighting" index="0" instance=ExtResource( 4 )]
 position = Vector2( -35, 39 )
-texture_scale = 1.19531
-energy = 1.01958
+texture_scale = 1.3225
+energy = 0.986435
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -57,8 +71,8 @@ persistence = 7.0
 
 [node name="StreetLampLight2" parent="Lighting" index="1" instance=ExtResource( 4 )]
 position = Vector2( 443, 40 )
-texture_scale = 1.27325
-energy = 0.978252
+texture_scale = 1.0534
+energy = 0.982309
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05
@@ -68,8 +82,8 @@ persistence = 7.0
 
 [node name="StreetLampLight3" parent="Lighting" index="2" instance=ExtResource( 4 )]
 position = Vector2( 1644, -32 )
-texture_scale = 1.19448
-energy = 1.00927
+texture_scale = 1.18692
+energy = 0.998417
 script = ExtResource( 5 )
 MIN_ENERGY = 0.95
 MAX_ENERGY = 1.05

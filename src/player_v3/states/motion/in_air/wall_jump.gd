@@ -11,8 +11,8 @@ onready var min_jump_velocity = -sqrt(2 * MIN_JUMP_HEIGHT * Globals.gravity.y)
 func enter():
 	owner.change_animation("tumble")
 	update_look_direction(-get_look_direction())
-	owner.velocity.y = max_jump_velocity * 0.7
-	owner.velocity.x = max_jump_velocity * 0.65 * -get_look_direction().x
+	owner.velocity.y = max_jump_velocity * 0.75
+	owner.velocity.x = max_jump_velocity * 0.6 * -get_look_direction().x
 	owner.is_jumping = true
 
 func update(delta):

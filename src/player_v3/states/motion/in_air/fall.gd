@@ -13,6 +13,8 @@ func enter():
 	update_look_direction(input_direction)
 	owner.change_animation("fall")
 	owner.is_jumping = false
+	
+	emit_signal("entered")
 
 
 func update(delta):
@@ -43,6 +45,7 @@ func update(delta):
 		
 		if not one_way:
 			emit_signal("finished","ledge_hang")
+			emit_signal("entered")
 	elif owner.check_is_on_wall() && input_direction.x == get_look_direction().x:
 		emit_signal("finished","wall_slide")
 	elif owner.check_is_on_floor() or owner.velocity.y <= -Globals.SAFETY_MARGIN:

@@ -1,12 +1,14 @@
 extends Node
 
 enum {
+	NULL,
 	FIREBOLT,
 	LIGHTNING,
 	HEAL,
 }
 
 const Names = [
+	"Null",
 	"Firebolt",
 	"Lightning",
 	"Heal",

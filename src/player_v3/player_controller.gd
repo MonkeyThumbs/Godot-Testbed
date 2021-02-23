@@ -1,15 +1,16 @@
 class_name Player
 extends KinematicBody2D
 
-enum SPELLS {
-	FIREBOLT,
-	LIGHTNING,
-	HEAL,
-}
+#enum SPELLS {
+#	FIREBOLT,
+#	LIGHTNING,
+#	HEAL,
+#}
 
 signal direction_changed(new_direction)
 signal state_changed(current_state)
 signal health_changed(health, amount)
+signal current_spell_changed(prev, current)
 # warning-ignore:unused_signal
 signal mana_changed(mana, amount)
 # warning-ignore:unused_signal
@@ -23,13 +24,14 @@ signal health_depleted
 
 export(int) var slope_force :int = 1
 export(Vector2) var snap_point : Vector2 = Vector2(0, 0)
-export(SPELLS) var current_spell = SPELLS.FIREBOLT
 
 
 var look_direction : Vector2 = Vector2(1, 0) setget set_look_direction, get_look_direction
 var velocity = Vector2(0, 0) setget set_velocity, get_velocity
 var local_gravity : Vector2 = Vector2.DOWN setget set_local_gravity, get_local_gravity
 var is_jumping : bool = false
+var known_spells = [Spells.FIREBOLT, Spells.LIGHTNING, Spells.HEAL]
+var current_spell = 0 setget set_current_spell, get_current_spell
 
 
 func _physics_process(delta):
@@ -87,6 +89,10 @@ func clamp_velocity() -> void:
 
 func change_animation(name : String) -> void:
 	$AnimationPlayer.play(name)
+
+
+#func change_animation(name : String) -> void:
+#	$AnimationPlayer/AnimationTree.get("parameters/playback").travel(name)
 
 
 func check_is_on_floor() -> bool:
@@ -166,6 +172,49 @@ func get_max_health() -> int:
 
 func set_max_health(value : int) -> void:
 	$Health.set_max_health(value)
+
+
+func get_current_spell() -> int:
+	return current_spell
+
+
+func set_current_spell(index : int):
+	if known_spells.size() <= 0:
+		return
+	elif index >= known_spells.size():
+		index = 0
+	elif index < 0:
+		index = known_spells.size() - 1
+	
+	var prev = current_spell
+	current_spell = index
+	
+	emit_signal("current_spell_changed", prev, current_spell)
+
+
+func next_spell():
+	set_current_spell(get_current_spell() + 1)
+
+
+func prev_spell():
+	set_current_spell(get_current_spell() - 1)
+
+
+func add_spell(id : int) -> bool:
+	if not known_spells.has(id):
+		known_spells.push_back(id)
+		known_spells.sort()
+		return true
+	return false
+
+
+func remove_spell(id : int) -> bool:
+	if known_spells.has(id):
+		known_spells.erase(id)
+		known_spells.sort()
+		set_current_spell(get_current_spell())
+		return true
+	return false
 
 
 func _on_StateMachine_state_changed(states_stack):

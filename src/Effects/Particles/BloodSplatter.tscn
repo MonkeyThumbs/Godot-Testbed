@@ -27,6 +27,7 @@ color = Color( 0.517647, 0, 0, 1 )
 hue_variation_random = 1.0
 
 [node name="BloodSplatter" type="Particles2D"]
+z_index = 2
 emitting = false
 amount = 200
 one_shot = true

@@ -1,4 +1,4 @@
-extends "../state.gd"
+extends State
 
 # Initialize the state. E.g. change the animation
 func enter():
@@ -12,7 +12,7 @@ func handle_input(event : InputEvent):
 
 
 func _on_animation_finished(_anim_name):
-	var spell_name = Spells.Names[owner.current_spell]
+	var spell_name = Spells.Names[owner.known_spells[owner.current_spell]]
 	var spell_file = Spells.Files[spell_name]
 	var spell = load(spell_file)
 	var spell_instance = spell.instance()

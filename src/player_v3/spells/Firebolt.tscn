@@ -27,7 +27,7 @@ tracks/0/keys = {
 
 [node name="Firebolt" type="Node2D"]
 position = Vector2( 20, 7 )
-z_index = 2
+z_index = -1
 script = ExtResource( 1 )
 
 [node name="DamageBox" parent="." instance=ExtResource( 4 )]
